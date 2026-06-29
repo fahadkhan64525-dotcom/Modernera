@@ -1,762 +1,1637 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modern Era — Luxury Interiors & Architecture</title>
-  <!-- Google Fonts (Premium Serif + Clean Sans) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 (Free Icons) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    /* ---------- RESET & BASE ---------- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --gold: #c9a96e;
-      --gold-light: #e8d5a3;
-      --dark: #1a1a1a;
-      --dark-soft: #2a2a2a;
-      --cream: #faf7f2;
-      --white: #ffffff;
-      --gray-light: #f0ede8;
-      --text-dark: #1e1e1e;
-      --text-muted: #5a5a5a;
-      --shadow: 0 20px 40px rgba(0,0,0,0.06);
-      --shadow-hover: 0 30px 60px rgba(0,0,0,0.10);
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--cream);
-      color: var(--text-dark);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    h1, h2, h3, h4 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-    }
-
-    .container {
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* ---------- BUTTONS ---------- */
-    .btn-gold {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--white);
-      padding: 14px 40px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-      border: 1px solid var(--gold);
-      cursor: pointer;
-    }
-
-    .btn-gold:hover {
-      background: transparent;
-      color: var(--gold);
-    }
-
-    .btn-outline-gold {
-      display: inline-block;
-      background: transparent;
-      color: var(--gold);
-      padding: 12px 36px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 2px;
-      border: 1px solid var(--gold);
-      transition: all 0.3s ease;
-    }
-
-    .btn-outline-gold:hover {
-      background: var(--gold);
-      color: var(--white);
-    }
-
-    /* ---------- NAVIGATION ---------- */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      background: rgba(26, 26, 26, 0.92);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      transition: all 0.3s ease;
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 24px;
-      max-width: 1240px;
-      margin: 0 auto;
-    }
-
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--white);
-      letter-spacing: 2px;
-    }
-    .logo span {
-      color: var(--gold);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 36px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: rgba(255,255,255,0.8);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      transition: color 0.3s;
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--gold);
-      transition: width 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: var(--white);
-    }
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-    }
-    .hamburger span {
-      width: 28px;
-      height: 2px;
-      background: var(--white);
-      transition: 0.3s;
-    }
-
-    /* ---------- HERO ---------- */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #1a1a1a 100%);
-      position: relative;
-      overflow: hidden;
-      padding-top: 80px;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.04"><path d="M10 10 L90 10 L90 90 L10 90 Z" stroke="%23c9a96e" stroke-width="0.5" fill="none"/><path d="M20 20 L80 20 L80 80 L20 80 Z" stroke="%23c9a96e" stroke-width="0.5" fill="none"/><path d="M30 30 L70 30 L70 70 L30 70 Z" stroke="%23c9a96e" stroke-width="0.5" fill="none"/></svg>');
-      background-size: 200px 200px;
-      pointer-events: none;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 800px;
-      padding: 40px 0;
-    }
-
-    .hero-subtitle {
-      font-size: 0.9rem;
-      letter-spacing: 6px;
-      text-transform: uppercase;
-      color: var(--gold);
-      font-weight: 500;
-      margin-bottom: 20px;
-      opacity: 0.8;
-    }
-
-    .hero h1 {
-      font-size: 4.2rem;
-      line-height: 1.1;
-      color: var(--white);
-      margin-bottom: 16px;
-    }
-
-    .hero h1 span {
-      color: var(--gold);
-      font-style: italic;
-    }
-
-    .hero-tagline {
-      font-size: 1.4rem;
-      font-family: 'Playfair Display', serif;
-      font-weight: 400;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 30px;
-      border-left: 3px solid var(--gold);
-      padding-left: 24px;
-      font-style: italic;
-    }
-
-    .hero-desc {
-      color: rgba(255,255,255,0.7);
-      font-weight: 300;
-      max-width: 540px;
-      margin-bottom: 40px;
-      font-size: 1.05rem;
-      line-height: 1.8;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    /* floating gold line decor */
-    .hero-deco {
-      position: absolute;
-      right: -80px;
-      bottom: -80px;
-      width: 500px;
-      height: 500px;
-      border-radius: 50%;
-      border: 1px solid rgba(201, 169, 110, 0.15);
-      pointer-events: none;
-    }
-    .hero-deco::after {
-      content: '';
-      position: absolute;
-      inset: 60px;
-      border-radius: 50%;
-      border: 1px solid rgba(201, 169, 110, 0.08);
-    }
-
-    /* ---------- SECTION COMMON ---------- */
-    section {
-      padding: 100px 0;
-    }
-
-    .section-label {
-      font-size: 0.8rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--gold);
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .section-title {
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-      line-height: 1.2;
-    }
-
-    .section-title span {
-      color: var(--gold);
-    }
-
-    .section-desc {
-      color: var(--text-muted);
-      max-width: 600px;
-      font-size: 1.05rem;
-      line-height: 1.8;
-      margin-bottom: 48px;
-    }
-
-    .text-center {
-      text-align: center;
-    }
-    .mx-auto {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* ---------- ABOUT / AESTHETIC VISION ---------- */
-    #about {
-      background: var(--white);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .about-image {
-      background: var(--gray-light);
-      height: 400px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gold);
-      font-size: 5rem;
-      border-radius: 4px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-    .about-image i {
-      opacity: 0.3;
-    }
-    .about-image::after {
-      content: 'Since 2010';
-      position: absolute;
-      bottom: 30px;
-      right: 30px;
-      background: var(--dark);
-      color: var(--gold);
-      padding: 12px 24px;
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      letter-spacing: 2px;
-    }
-
-    .about-text h3 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-    .about-text p {
-      color: var(--text-muted);
-      margin-bottom: 20px;
-      line-height: 1.8;
-    }
-    .about-text ul {
-      list-style: none;
-      margin-top: 16px;
-    }
-    .about-text ul li {
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 400;
-    }
-    .about-text ul li i {
-      color: var(--gold);
-      width: 20px;
-    }
-
-    /* ---------- SERVICES ---------- */
-    #services {
-      background: var(--cream);
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
-    }
-
-    .service-card {
-      background: var(--white);
-      padding: 40px 30px;
-      border-radius: 4px;
-      box-shadow: var(--shadow);
-      transition: all 0.4s ease;
-      border-bottom: 3px solid transparent;
-      text-align: center;
-    }
-
-    .service-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-hover);
-      border-bottom-color: var(--gold);
-    }
-
-    .service-card i {
-      font-size: 2.8rem;
-      color: var(--gold);
-      margin-bottom: 24px;
-    }
-
-    .service-card h4 {
-      font-size: 1.3rem;
-      margin-bottom: 12px;
-    }
-
-    .service-card p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.7;
-    }
-
-    /* ---------- FOUNDER & CO-FOUNDER ---------- */
-    #founders {
-      background: var(--white);
-    }
-
-    .founders-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      margin-top: 20px;
-    }
-
-    .founder-card {
-      background: var(--cream);
-      padding: 40px 36px;
-      border-radius: 4px;
-      box-shadow: var(--shadow);
-      transition: all 0.4s ease;
-      border-left: 4px solid var(--gold);
-      position: relative;
-    }
-
-    .founder-card:hover {
-      box-shadow: var(--shadow-hover);
-      transform: scale(1.01);
-    }
-
-    .founder-avatar {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: var(--dark);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 24px;
-      color: var(--gold);
-      font-size: 3rem;
-      border: 3px solid var(--gold-light);
-    }
-
-    .founder-card h3 {
-      font-size: 1.8rem;
-      margin-bottom: 4px;
-    }
-
-    .founder-role {
-      color: var(--gold);
-      font-weight: 600;
-      font-size: 0.9rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-      display: inline-block;
-      background: rgba(201, 169, 110, 0.12);
-      padding: 2px 16px;
-      border-radius: 20px;
-    }
-
-    .founder-card p {
-      color: var(--text-muted);
-      line-height: 1.8;
-      margin-top: 12px;
-    }
-
-    .founder-social {
-      margin-top: 20px;
-      display: flex;
-      gap: 16px;
-    }
-    .founder-social a {
-      color: var(--dark-soft);
-      transition: color 0.3s;
-      font-size: 1.2rem;
-    }
-    .founder-social a:hover {
-      color: var(--gold);
-    }
-
-    .quote-icon {
-      color: var(--gold);
-      opacity: 0.2;
-      font-size: 3rem;
-      position: absolute;
-      bottom: 20px;
-      right: 30px;
-    }
-
-    /* ---------- CONTACT ---------- */
-    #contact {
-      background: var(--dark);
-      color: var(--white);
-    }
-
-    .contact-wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: start;
-    }
-
-    .contact-info h2 {
-      color: var(--white);
-    }
-    .contact-info p {
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 30px;
-    }
-
-    .contact-detail {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin-bottom: 24px;
-    }
-    .contact-detail i {
-      width: 44px;
-      height: 44px;
-      background: rgba(201, 169, 110, 0.15);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gold);
-      font-size: 1.1rem;
-    }
-    .contact-detail div {
-      font-weight: 300;
-    }
-    .contact-detail strong {
-      display: block;
-      color: var(--white);
-      font-weight: 600;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 16px 20px;
-      margin-bottom: 16px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 2px;
-      color: var(--white);
-      font-family: 'Inter', sans-serif;
-      transition: border 0.3s;
-    }
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      outline: none;
-      border-color: var(--gold);
-    }
-    .contact-form input::placeholder,
-    .contact-form textarea::placeholder {
-      color: rgba(255,255,255,0.4);
-    }
-    .contact-form textarea {
-      min-height: 140px;
-      resize: vertical;
-    }
-
-    /* ---------- FOOTER ---------- */
-    footer {
-      background: #111;
-      padding: 40px 0;
-      border-top: 1px solid rgba(255,255,255,0.04);
-      color: rgba(255,255,255,0.5);
-      font-size: 0.9rem;
-    }
-    .footer-flex {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .footer-flex span {
-      color: var(--gold);
-    }
-
-    /* ---------- RESPONSIVE ---------- */
-    @media (max-width: 992px) {
-      .hero h1 { font-size: 3.2rem; }
-      .about-grid, .contact-wrapper, .founders-grid { grid-template-columns: 1fr; }
-      .about-image { height: 280px; }
-      .section-title { font-size: 2.2rem; }
-      .hero-deco { display: none; }
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: rgba(26,26,26,0.98);
-        flex-direction: column;
-        align-items: center;
-        padding: 40px 0;
-        gap: 24px;
-        transform: translateY(-120%);
-        transition: transform 0.4s ease;
-        backdrop-filter: blur(10px);
-      }
-      .nav-links.active { transform: translateY(0); }
-      .hamburger { display: flex; }
-      .hero h1 { font-size: 2.6rem; }
-      .hero-tagline { font-size: 1.1rem; }
-      section { padding: 70px 0; }
-      .founder-card { padding: 30px 24px; }
-      .services-grid { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 480px) {
-      .services-grid { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 2.2rem; }
-      .btn-gold, .btn-outline-gold { padding: 12px 28px; font-size: 0.8rem; }
-    }
-
-    /* scroll reveal animation */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.7s cubic-bezier(0.2, 0.9, 0.3, 1);
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Era — Luxury Interiors & Architectural Concepts</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* ---------- RESET & ROOT ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #080B12;
+            --bg-secondary: #0E1520;
+            --bg-card: #131C2A;
+            --bg-card-hover: #1B2840;
+            --gold: #C9A87C;
+            --gold-light: #E4C9A0;
+            --gold-dark: #A8895E;
+            --gold-glow: rgba(201, 168, 124, 0.12);
+            --text-white: #F8FAFC;
+            --text-gray: #94A3B8;
+            --text-muted: #64748B;
+            --border-gold: rgba(201, 168, 124, 0.12);
+            --shadow-card: 0 20px 40px -12px rgba(0, 0, 0, 0.6);
+            --font-body: 'Inter', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-primary);
+            color: var(--text-white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* ---------- UNIQUE ANIMATED BACKGROUND ---------- */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: radial-gradient(ellipse at 20% 50%, rgba(201, 168, 124, 0.07) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(56, 89, 138, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(201, 168, 124, 0.04) 0%, transparent 50%),
+                #080B12;
+            background-size: 200% 200%;
+            animation: gradientMesh 18s ease-in-out infinite alternate;
+        }
+
+        @keyframes gradientMesh {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Subtle noise texture overlay */
+        .noise-texture {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.025;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 200px 200px;
+        }
+
+        /* Floating decorative orbs */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.5;
+            animation: orbFloat 20s ease-in-out infinite alternate;
+        }
+        .orb-gold {
+            background: rgba(201, 168, 124, 0.08);
+            width: 500px;
+            height: 500px;
+            top: -10%;
+            right: -5%;
+        }
+        .orb-blue {
+            background: rgba(56, 89, 138, 0.06);
+            width: 400px;
+            height: 400px;
+            bottom: -10%;
+            left: -5%;
+            animation-delay: 5s;
+        }
+
+        @keyframes orbFloat {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                transform: translate(30px, 30px) scale(1.1);
+            }
+        }
+
+        /* ---------- BUTTONS ---------- */
+        .btn-primary {
+            display: inline-block;
+            padding: 15px 42px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--bg-primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 6px;
+            transition: var(--transition);
+            letter-spacing: 0.5px;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-body);
+            box-shadow: 0 4px 20px rgba(201, 168, 124, 0.25);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(201, 168, 124, 0.4);
+            background: linear-gradient(135deg, #dbbd96, #b89466);
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 14px 38px;
+            background: transparent;
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1.5px solid var(--gold);
+            border-radius: 6px;
+            transition: var(--transition);
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(4px);
+        }
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--bg-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(201, 168, 124, 0.2);
+        }
+
+        /* ---------- FLOATING CONTACT BUTTONS ---------- */
+        .floating-buttons {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            z-index: 999;
+        }
+        .floating-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .floating-btn:hover {
+            transform: scale(1.1) translateY(-3px);
+        }
+        .floating-btn.whatsapp {
+            background: #25D366;
+        }
+        .floating-btn.call {
+            background: #34B7F1;
+        }
+        .floating-btn.email {
+            background: #D44638;
+        }
+
+        /* ---------- HEADER ---------- */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(8, 11, 18, 0.85);
+            backdrop-filter: blur(16px) saturate(180%);
+            border-bottom: 1px solid var(--border-gold);
+            transition: var(--transition);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--text-white);
+            line-height: 1.1;
+        }
+        .logo span {
+            color: var(--gold);
+        }
+        .logo small {
+            font-family: var(--font-body);
+            font-size: 0.65rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            display: block;
+            margin-top: -2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .nav-links a {
+            color: var(--text-gray);
+            transition: var(--transition);
+            position: relative;
+            padding-bottom: 4px;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+            border-radius: 4px;
+        }
+        .nav-links a:hover {
+            color: var(--text-white);
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 6px;
+            background: none;
+            border: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .hamburger span {
+            display: block;
+            width: 28px;
+            height: 2px;
+            background: var(--text-white);
+            transition: var(--transition);
+            border-radius: 4px;
+        }
+        .hamburger:focus-visible,
+        .portfolio-item:focus-visible,
+        .filter-btn:focus-visible,
+        .modal-close:focus-visible,
+        .floating-btn:focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 4px;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ---------- HERO ---------- */
+        .hero {
+            padding: 180px 0 140px;
+            position: relative;
+            border-bottom: 1px solid var(--border-gold);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-content h1 {
+            font-family: var(--font-heading);
+            font-size: 4.2rem;
+            line-height: 1.08;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        .hero-content h1 span {
+            color: var(--gold);
+            position: relative;
+        }
+        .hero-content h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gold-glow);
+            border-radius: 4px;
+        }
+        .hero-content p {
+            font-size: 1.15rem;
+            color: var(--text-gray);
+            max-width: 520px;
+            margin-bottom: 40px;
+        }
+        .hero-badges {
+            display: flex;
+            gap: 48px;
+            margin-top: 44px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-gold);
+        }
+        .hero-badges div {
+            display: flex;
+            flex-direction: column;
+        }
+        .hero-badges .number {
+            font-family: var(--font-heading);
+            font-size: 2.6rem;
+            color: var(--gold);
+            font-weight: 700;
+            line-height: 1;
+        }
+        .hero-badges .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .hero-image .placeholder {
+            width: 100%;
+            height: 380px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 12px;
+            background-image: url('https://picsum.photos/seed/modernera_hero/800/500');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+        }
+        .hero-image .placeholder:hover {
+            transform: scale(1.01);
+            border-color: var(--gold);
+        }
+        .hero-image .placeholder::after {
+            content: '✨ Aesthetic Vision';
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            background: rgba(8, 11, 18, 0.8);
+            backdrop-filter: blur(8px);
+            padding: 14px 28px;
+            border-radius: 6px;
+            border: 1px solid var(--border-gold);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        /* ---------- SECTION TITLES ---------- */
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 12px;
+        }
+        .section-title span {
+            color: var(--gold);
+        }
+        .section-sub {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+        .section-header .section-sub {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ---------- FADE ANIMATION ---------- */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ---------- ABOUT ---------- */
+        .about {
+            padding: 100px 0;
+            background: rgba(14, 21, 32, 0.6);
+            backdrop-filter: blur(2px);
+            border-bottom: 1px solid var(--border-gold);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .about-text .lead {
+            font-size: 1.2rem;
+            color: var(--gold-light);
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        .about-text p {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+        .about-stats-mini {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 30px;
+        }
+        .about-stats-mini div {
+            background: var(--bg-card);
+            padding: 22px 16px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--border-gold);
+            transition: var(--transition);
+        }
+        .about-stats-mini div:hover {
+            border-color: var(--gold);
+            background: var(--bg-card-hover);
+        }
+        .about-stats-mini .num {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--gold);
+            font-weight: 700;
+        }
+        .about-stats-mini .lbl {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+
+        /* ---------- FOUNDER & CO-FOUNDER (LEADERSHIP) ---------- */
+        .leadership {
+            padding: 100px 0;
+            background: rgba(8, 11, 18, 0.4);
+            border-bottom: 1px solid var(--border-gold);
+        }
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 900px;
+            margin: 20px auto 0;
+        }
+        .leader-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 40px 32px 36px;
+            border: 1px solid var(--border-gold);
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow-card);
+        }
+        .leader-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            background: var(--bg-card-hover);
+            box-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.6);
+        }
+        .leader-card .avatar {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: var(--bg-secondary);
+            border: 3px solid var(--gold);
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(201, 168, 124, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .leader-card .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .leader-card .avatar .initials {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: var(--gold);
+            font-weight: 700;
+        }
+        .leader-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .leader-card .role {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 14px;
+            display: inline-block;
+            background: var(--gold-glow);
+            padding: 4px 20px;
+            border-radius: 40px;
+            border: 1px solid var(--border-gold);
+        }
+        .leader-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-top: 8px;
+        }
+
+        /* ---------- SERVICES ---------- */
+        .services {
+            padding: 100px 0;
+            background: rgba(8, 11, 18, 0.4);
+            border-bottom: 1px solid var(--border-gold);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+        .service-card {
+            background: var(--bg-card);
+            padding: 36px 28px;
+            border-radius: 10px;
+            border: 1px solid var(--border-gold);
+            transition: var(--transition);
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--gold);
+            background: var(--bg-card-hover);
+            box-shadow: var(--shadow-card);
+        }
+        .service-card .icon {
+            font-size: 2.6rem;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+        .service-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .service-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* ---------- UPGRADED PORTFOLIO ---------- */
+        .portfolio {
+            padding: 100px 0;
+            background: rgba(14, 21, 32, 0.6);
+            backdrop-filter: blur(2px);
+            border-bottom: 1px solid var(--border-gold);
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+        .filter-btn {
+            padding: 10px 28px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 40px;
+            color: var(--text-gray);
+            font-weight: 500;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: var(--font-body);
+            letter-spacing: 0.5px;
+        }
+        .filter-btn:hover {
+            border-color: var(--gold);
+            color: var(--text-white);
+        }
+        .filter-btn.active {
+            background: var(--gold);
+            color: var(--bg-primary);
+            border-color: var(--gold);
+            font-weight: 600;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-gold);
+            background: var(--bg-card);
+            transition: var(--transition);
+            cursor: pointer;
+            aspect-ratio: 4 / 3;
+        }
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .portfolio-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent 30%, rgba(8, 11, 18, 0.9) 100%);
+            opacity: 0;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+        }
+        .portfolio-item:hover .overlay {
+            opacity: 1;
+        }
+        .portfolio-item:hover img {
+            transform: scale(1.06);
+        }
+        .portfolio-item:hover {
+            border-color: var(--gold);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.7);
+        }
+
+        .portfolio-item .overlay h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            transform: translateY(16px);
+            transition: var(--transition);
+        }
+        .portfolio-item .overlay p {
+            color: var(--gold);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+            transform: translateY(16px);
+            transition: var(--transition);
+            transition-delay: 0.05s;
+        }
+        .portfolio-item .overlay .view-icon {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--gold);
+            color: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transform: translateY(-10px) scale(0.8);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        .portfolio-item:hover .overlay h3,
+        .portfolio-item:hover .overlay p {
+            transform: translateY(0);
+        }
+        .portfolio-item:hover .overlay .view-icon {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        /* ---------- PORTFOLIO MODAL ---------- */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(8, 11, 18, 0.92);
+            backdrop-filter: blur(20px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+        .modal.active {
+            display: flex;
+        }
+        .modal-content {
+            max-width: 900px;
+            width: 100%;
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            border: 1px solid var(--border-gold);
+            overflow: hidden;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8);
+            animation: modalFadeIn 0.4s ease;
+        }
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.92) translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        .modal-content img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+        }
+        .modal-body {
+            padding: 32px 36px;
+        }
+        .modal-body h2 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-bottom: 6px;
+        }
+        .modal-body .modal-category {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .modal-body p {
+            color: var(--text-gray);
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+        .modal-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: none;
+            border: none;
+            color: var(--text-white);
+            font-size: 2.4rem;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 2001;
+            opacity: 0.6;
+        }
+        .modal-close:hover {
+            opacity: 1;
+            transform: rotate(90deg);
+        }
+        .modal-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ---------- CONTACT ---------- */
+        .contact {
+            padding: 100px 0;
+            background: rgba(8, 11, 18, 0.4);
+            border-bottom: 1px solid var(--border-gold);
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        .contact-info h3 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+        }
+        .contact-info p {
+            color: var(--text-gray);
+            margin-bottom: 32px;
+        }
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+        .contact-detail i {
+            width: 48px;
+            height: 48px;
+            background: var(--bg-card);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.2rem;
+            border: 1px solid var(--border-gold);
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+        .contact-detail:hover i {
+            border-color: var(--gold);
+            background: var(--bg-card-hover);
+        }
+        .contact-detail span,
+        .contact-detail a {
+            color: var(--text-gray);
+            transition: var(--transition);
+        }
+        .contact-detail a:hover {
+            color: var(--gold);
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 16px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            color: var(--text-white);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            margin-bottom: 18px;
+            transition: var(--transition);
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px var(--gold-glow);
+            background: var(--bg-card-hover);
+        }
+        .contact-form textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+        .form-note {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: -4px;
+            margin-bottom: 18px;
+        }
+
+        /* ---------- FOOTER ---------- */
+        .footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border-gold);
+            background: rgba(8, 11, 18, 0.8);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .footer span {
+            color: var(--gold);
+        }
+        .footer .social-links {
+            margin-top: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .footer .social-links a {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+        .footer .social-links a:hover {
+            color: var(--gold);
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-badges {
+                justify-content: center;
+            }
+            .hero-image .placeholder {
+                height: 260px;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .about-stats-mini {
+                justify-content: center;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+            .leadership-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(8, 11, 18, 0.98);
+                backdrop-filter: blur(16px);
+                flex-direction: column;
+                padding: 30px 24px;
+                gap: 20px;
+                border-bottom: 1px solid var(--border-gold);
+                transform: scaleY(0);
+                transform-origin: top;
+                opacity: 0;
+                transition: var(--transition);
+                pointer-events: none;
+            }
+            .nav-links.open {
+                transform: scaleY(1);
+                opacity: 1;
+                pointer-events: all;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            .section-title {
+                font-size: 2.4rem;
+            }
+            .hero-badges {
+                flex-wrap: wrap;
+                gap: 24px;
+            }
+            .about-stats-mini {
+                grid-template-columns: 1fr 1fr;
+            }
+            .portfolio-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .floating-buttons {
+                bottom: 16px;
+                right: 16px;
+                gap: 10px;
+            }
+            .floating-btn {
+                width: 48px;
+                height: 48px;
+                font-size: 1.3rem;
+            }
+            .modal {
+                padding: 16px;
+            }
+            .modal-body {
+                padding: 24px;
+            }
+            .modal-body h2 {
+                font-size: 1.6rem;
+            }
+            .leadership-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .container {
+                padding: 0 16px;
+            }
+            .service-card {
+                padding: 24px 18px;
+            }
+            .hero-image .placeholder {
+                height: 200px;
+            }
+            .hero-image .placeholder::after {
+                font-size: 0.8rem;
+                padding: 10px 16px;
+                bottom: 16px;
+                left: 16px;
+            }
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            .filter-btn {
+                padding: 8px 18px;
+                font-size: 0.75rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- ========== NAVIGATION ========== -->
-  <nav>
-    <div class="nav-container">
-      <div class="logo">Modern <span>Era</span></div>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#about">Vision</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#founders">Founders</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+    <!-- ============ UNIQUE BACKGROUND LAYERS ============ -->
+    <div class="animated-bg"></div>
+    <div class="noise-texture"></div>
+    <div class="orb orb-gold"></div>
+    <div class="orb orb-blue"></div>
 
-  <!-- ========== HERO ========== -->
-  <header class="hero" id="home">
+    <!-- ============ FLOATING CONTACT BUTTONS ============ -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/919773751345" target="_blank" rel="noopener noreferrer" class="floating-btn whatsapp" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+919773751345" class="floating-btn call" aria-label="Call">
+            <i class="fas fa-phone"></i>
+        </a>
+        <a href="mailto:modernera09@gmail.com" class="floating-btn email" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
+
+    <!-- ============ PORTFOLIO MODAL ============ -->
+    <div class="modal" id="portfolioModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDescription" aria-hidden="true">
+        <button class="modal-close" id="modalClose" type="button" aria-label="Close project details"><i class="fas fa-times"></i></button>
+        <div class="modal-wrapper">
+            <div class="modal-content">
+                <img id="modalImage" src="" alt="Project" />
+                <div class="modal-body">
+                    <h2 id="modalTitle">Project Title</h2>
+                    <div class="modal-category" id="modalCategory">Category</div>
+                    <p id="modalDescription">Project description goes here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ HEADER ============ -->
+    <header class="header" id="header">
+        <nav class="container nav" aria-label="Primary">
+            <div class="logo">
+                Modern<span>Era</span>
+                <small>Luxury Interiors &amp; Architectural Concepts</small>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#leadership">Team</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" type="button" aria-label="Toggle navigation menu" aria-controls="navLinks" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
+        <div class="container hero-grid">
+            <div class="hero-content fade-up visible">
+                <h1>Luxury Interiors &amp; <span>Architectural Concepts</span></h1>
+                <p>Transforming spaces with aesthetic vision, precision craftsmanship, and timeless design — from concept to completion.</p>
+                <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: flex-start;">
+                    <a href="#portfolio" class="btn-primary">View Portfolio</a>
+                    <a href="#contact" class="btn-outline">Let's Talk</a>
+                </div>
+                <div class="hero-badges">
+                    <div><span class="number">10+</span><span class="label">Years Excellence</span></div>
+                    <div><span class="number">200+</span><span class="label">Projects Delivered</span></div>
+                    <div><span class="number">100%</span><span class="label">Client Satisfaction</span></div>
+                </div>
+            </div>
+            <div class="hero-image fade-up visible">
+                <div class="placeholder"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="about" id="about">
+        <div class="container about-grid">
+            <div class="about-text fade-up">
+                <p class="lead">Aesthetic Vision · Innovation · Future</p>
+                <h2 class="section-title">Crafting <span>Spaces</span> that Inspire</h2>
+                <p>Modern Era is a premier luxury interiors and architectural design firm based in Noida Extension. We blend contemporary aesthetics with functional elegance to create environments that resonate with your brand and lifestyle.</p>
+                <p>From residential havens to commercial masterpieces, every project is a testament to our dedication to quality, detail, and innovative design thinking.</p>
+                <div class="about-stats-mini">
+                    <div><div class="num">2016</div><div class="lbl">Founded</div></div>
+                    <div><div class="num">NCR</div><div class="lbl">Service Area</div></div>
+                    <div><div class="num">50+</div><div class="lbl">Expert Team</div></div>
+                </div>
+            </div>
+            <div class="fade-up" style="background: var(--bg-card); padding: 40px 32px; border-radius: 12px; border: 1px solid var(--border-gold); box-shadow: var(--shadow-card);">
+                <h3 style="color: var(--gold); font-family: var(--font-heading); font-size: 1.6rem; margin-bottom: 20px;">Our Core Values</h3>
+                <ul style="display: grid; gap: 18px;">
+                    <li style="display: flex; gap: 16px; align-items: center; padding-bottom: 14px; border-bottom: 1px solid var(--border-gold);">
+                        <span style="color: var(--gold); font-size: 1.4rem;">🎨</span>
+                        <div><strong>Aesthetic Vision</strong><p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">Design that captivates and endures.</p></div>
+                    </li>
+                    <li style="display: flex; gap: 16px; align-items: center; padding-bottom: 14px; border-bottom: 1px solid var(--border-gold);">
+                        <span style="color: var(--gold); font-size: 1.4rem;">🔨</span>
+                        <div><strong>Precision Craftsmanship</strong><p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">Meticulous attention to every detail.</p></div>
+                    </li>
+                    <li style="display: flex; gap: 16px; align-items: center; padding-bottom: 14px; border-bottom: 1px solid var(--border-gold);">
+                        <span style="color: var(--gold); font-size: 1.4rem;">💡</span>
+                        <div><strong>Innovation</strong><p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">Forward‑thinking solutions for modern living.</p></div>
+                    </li>
+                    <li style="display: flex; gap: 16px; align-items: center;">
+                        <span style="color: var(--gold); font-size: 1.4rem;">🤝</span>
+                        <div><strong>Client‑Centric</strong><p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">Collaborative partnerships from concept to completion.</p></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOUNDER & CO-FOUNDER (LEADERSHIP) ============ -->
+    <section class="leadership" id="leadership">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 class="section-title">Founding <span>Team</span></h2>
+                <p class="section-sub">The visionaries and creative minds behind Modern Era's design philosophy.</p>
+            </div>
+            <div class="leadership-grid">
+                <!-- Founder -->
+                <div class="leader-card fade-up">
+                    <div class="avatar">
+                        <img src="https://i.ibb.co/BHLPNXpR/Chat-GPT-Image-Jun-29-2026-09-36-50-PM.png" alt="Portrait of Mr. Sukhva" loading="lazy" />
+                    </div>
+                    <h3>Mr. Sukhva</h3>
+                    <div class="role">Founder</div>
+                    <p>Visionary leader with over 30+ years of experience in luxury interiors and architectural design. Passionate about creating spaces that tell a story.</p>
+                </div>
+                <!-- Co-Founder -->
+                <div class="leader-card fade-up">
+                    <div class="avatar">
+                        <img src="https://i.ibb.co/bRz9P1NH/Chat-GPT-Image-Jun-29-2026-09-57-41-PM.png" alt="Portrait of Mr. Hasan" loading="lazy" />
+                    </div>
+                    <h3>Mr. Hasan </h3>
+                    <div class="role">Co-Founder &amp; Creative Director</div>
+                    <p>An award-winning designer with a keen eye for detail. Brings a unique blend of innovation and timeless elegance to every project.</p>
+                </div>
+                <!-- Add a third card if you have a partner/director -->
+                
+                <div class="leader-card fade-up">
+                    <div class="avatar">
+                        <img src="https://i.ibb.co/pBFDXFvM/Chat-GPT-Image-Jun-29-2026-09-57-46-PM.png" alt="Portrait of Mr. Anas" loading="lazy" />
+                    </div>
+                    <h3>Mr. Anas</h3>
+                    <div class="role">Manager</div>
+                    <p>Oversees operations and client relations, ensuring every project exceeds expectations.</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 class="section-title">Our <span>Expertise</span></h2>
+                <p class="section-sub">End‑to‑end interior and architectural services tailored to your vision.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-up"><div class="icon">🏠</div><h3>Luxury Interiors</h3><p>Residential and commercial interiors that exude elegance, comfort, and style.</p></div>
+                <div class="service-card fade-up"><div class="icon">📐</div><h3>Architectural Concepts</h3><p>Innovative spatial planning and facade design that define modern structures.</p></div>
+                <div class="service-card fade-up"><div class="icon">🛋️</div><h3>Custom Furniture</h3><p>Bespoke pieces crafted to complement your space and reflect your personality.</p></div>
+                <div class="service-card fade-up"><div class="icon">💡</div><h3>Lighting Design</h3><p>Strategic lighting solutions that enhance ambiance and functionality.</p></div>
+                <div class="service-card fade-up"><div class="icon">🌿</div><h3>Landscape &amp; Outdoor</h3><p>Integrating nature with architecture through thoughtful landscape design.</p></div>
+                <div class="service-card fade-up"><div class="icon">🖥️</div><h3>3D Visualization</h3><p>Immersive renderings to help you visualise your project before execution.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ UPGRADED PORTFOLIO ============ -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 class="section-title">Featured <span>Portfolio</span></h2>
+                <p class="section-sub">A curated selection of our finest work — crafted with passion and precision.</p>
+            </div>
+
+            <div class="filter-buttons fade-up">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="interior">Interiors</button>
+                <button class="filter-btn" data-filter="architecture">Architecture</button>
+                <button class="filter-btn" data-filter="landscape">Landscape</button>
+            </div>
+
+            <div class="portfolio-grid" id="portfolioGrid">
+                <div class="portfolio-item fade-up" data-category="interior"
+                data-title="Modern Penthouse"
+                data-category-label="Luxury Interiors"
+                data-description="A breathtaking penthouse in Noida, featuring open-plan living spaces, custom millwork, and a seamless blend of contemporary and classic elements."
+                data-image="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80">
+                    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&h=450&q=80" alt="Modern Penthouse" loading="lazy" />
+                <div class="overlay">
+                    <div class="view-icon"><i class="fas fa-arrow-right"></i></div>
+                    <h3>Modern Penthouse</h3>
+                    <p>Luxury Interiors</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item fade-up" data-category="architecture"
+            data-title="Corporate Headquarters"
+            data-category-label="Architectural Concepts"
+            data-description="A state-of-the-art corporate office in Delhi NCR, designed with a focus on sustainability, natural light, and collaborative workspaces."
+            data-image="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80">
+            <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=600&h=450&q=80" alt="Corporate Headquarters" loading="lazy" />
+            <div class="overlay">
+                <div class="view-icon"><i class="fas fa-arrow-right"></i></div>
+                <h3>Corporate Headquarters</h3>
+                <p>Architectural Concepts</p>
+            </div>
+        </div>
+
+        <div class="portfolio-item fade-up" data-category="landscape"
+        data-title="Villa Garden Oasis"
+        data-category-label="Landscape Design"
+        data-description="An outdoor sanctuary in Noida Extension, complete with water features, native plantings, and intimate seating areas that blend seamlessly with the architecture."
+        data-image="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&h=450&q=80" alt="Villa Garden Oasis" loading="lazy" />
+        <div class="overlay">
+            <div class="view-icon"><i class="fas fa-arrow-right"></i></div>
+            <h3>Villa Garden Oasis</h3>
+            <p>Landscape Design</p>
+        </div>
+    </div>
+
+    <div class="portfolio-item fade-up" data-category="interior"
+    data-title="Boutique Hotel Suite"
+    data-category-label="Luxury Interiors"
+    data-description="A luxury hotel suite in Greater Noida, featuring bespoke furniture, curated artwork, and a warm, inviting color palette."
+    data-image="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80">
+    <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=600&h=450&q=80" alt="Boutique Hotel Suite" loading="lazy" />
+    <div class="overlay">
+        <div class="view-icon"><i class="fas fa-arrow-right"></i></div>
+        <h3>Boutique Hotel Suite</h3>
+        <p>Luxury Interiors</p>
+    </div>
+</div>
+
+<div class="portfolio-item fade-up" data-category="architecture"
+data-title="Residential Sky Villa"
+data-category-label="Architectural Concepts"
+data-description="A sky villa that redefines urban living with its sweeping views, double-height living spaces, and a seamless indoor-outdoor connection."
+data-image="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=80">
+<img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=600&h=450&q=80" alt="Residential Sky Villa" loading="lazy" />
+<div class="overlay">
+    <div class="view-icon"><i class="fas fa-arrow-right"></i></div>
+    <h3>Residential Sky Villa</h3>
+    <p>Architectural Concepts</p>
+</div>
+</div>
+
+<div class="portfolio-item fade-up" data-category="landscape"
+data-title="Terrace Garden Retreat"
+data-category-label="Landscape Design"
+data-description="A serene terrace garden in Noida, designed as a private retreat with lush greenery, wooden decks, and ambient lighting."
+data-image="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80">
+<img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&h=450&q=80" alt="Terrace Garden Retreat" loading="lazy" />
+<div class="overlay">
+    <div class="view-icon"><i class="fas fa-arrow-right"></i></div>
+    <h3>Terrace Garden Retreat</h3>
+    <p>Landscape Design</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
     <div class="container">
-      <div class="hero-content">
-        <div class="hero-subtitle"><i class="fas fa-crown" style="margin-right: 8px;"></i> Since 2010</div>
-        <h1>Luxury Interiors & <br><span>Architectural</span> Concepts</h1>
-        <div class="hero-tagline">Aesthetic vision — timeless elegance</div>
-        <p class="hero-desc">We transform spaces into masterpieces. From residential sanctuaries to commercial landmarks, every project is a statement of refined taste.</p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn-gold">Start your project</a>
-          <a href="#services" class="btn-outline-gold">Explore</a>
+        <div class="section-header fade-up">
+            <h2 class="section-title">Let's <span>Connect</span></h2>
+            <p class="section-sub">Reach out to discuss your project, or simply say hello.</p>
         </div>
-      </div>
+        <div class="contact-grid">
+            <div class="contact-info fade-up">
+                <h3>Get in Touch</h3>
+                <p>We're here to bring your vision to life — every detail, every space.</p>
+                <div class="contact-detail">
+                    <i class="fas fa-map-pin"></i>
+                    <span>Paramount Emotions Plot no-GH05, Noida Ext. Sector-1, UP 201301</span>
+                </div>
+                <div class="contact-detail">
+                    <i class="fas fa-phone"></i>
+                    <span><a href="tel:+919773751345">+91 9773751345</a> / <a href="tel:+918532916235">+91 8532916235</a></span>
+                </div>
+                <div class="contact-detail">
+                    <i class="fas fa-envelope"></i>
+                    <span><a href="mailto:modernera09@gmail.com">modernera09@gmail.com</a></span>
+                </div>
+                <div class="contact-detail">
+                    <i class="fab fa-instagram"></i>
+                    <span><a href="https://instagram.com/Modernera_09" target="_blank" rel="noopener noreferrer">@Modernera_09</a></span>
+                </div>
+                <div style="margin-top: 30px; display: flex; gap: 20px; flex-wrap: wrap;">
+                    <a href="https://wa.me/919773751345" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display: inline-flex; align-items: center; gap: 10px;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="tel:+919773751345" class="btn-outline" style="display: inline-flex; align-items: center; gap: 10px;"><i class="fas fa-phone"></i> Call Us</a>
+                    <a href="mailto:modernera09@gmail.com" class="btn-outline" style="display: inline-flex; align-items: center; gap: 10px;"><i class="fas fa-envelope"></i> Email</a>
+                </div>
+            </div>
+            <form class="contact-form fade-up" id="contactForm">
+                <label class="sr-only" for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Full Name" autocomplete="name" required />
+                <label class="sr-only" for="emailAddress">Email Address</label>
+                <input type="email" id="emailAddress" name="emailAddress" placeholder="Email Address" autocomplete="email" required />
+                <label class="sr-only" for="projectSubject">Subject</label>
+                <input type="text" id="projectSubject" name="projectSubject" placeholder="Subject" />
+                <label class="sr-only" for="projectMessage">Project Details</label>
+                <textarea id="projectMessage" name="projectMessage" placeholder="Tell us about your project..." required></textarea>
+                <p class="form-note">Submitting opens your email app with your message prefilled.</p>
+                <button type="submit" class="btn-primary" style="width: 100%;">Send Message</button>
+            </form>
+        </div>
     </div>
-    <div class="hero-deco"></div>
-  </header>
+</section>
 
-  <!-- ========== ABOUT / VISION ========== -->
-  <section id="about">
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
     <div class="container">
-      <div class="about-grid">
-        <div class="about-image reveal">
-          <i class="fas fa-paint-brush"></i>
+        <p>&copy; <span id="year"></span> <span>Modern Era</span> — Innovation · Design · Future</p>
+        <div class="social-links">
+            <a href="https://instagram.com/Modernera_09" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:modernera09@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="tel:+919773751345" aria-label="Call"><i class="fas fa-phone"></i></a>
+            <a href="https://wa.me/919773751345" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
-        <div class="about-text reveal">
-          <span class="section-label">Our Vision</span>
-          <h3>Aesthetic <span style="color: var(--gold);">Excellence</span> in Every Detail</h3>
-          <p>Modern Era is a boutique design studio that merges architectural precision with interior artistry. We believe great design is not just about beauty—it's about how a space makes you feel.</p>
-          <p>With a portfolio spanning luxury residences, boutique hotels, and high-end offices, our approach is deeply personal and meticulously crafted.</p>
-          <ul>
-            <li><i class="fas fa-check-circle"></i> Bespoke furniture & millwork</li>
-            <li><i class="fas fa-check-circle"></i> Façade & exterior harmony</li>
-            <li><i class="fas fa-check-circle"></i> Urban landscaping integration</li>
-          </ul>
-        </div>
-      </div>
     </div>
-  </section>
+</footer>
 
-  <!-- ========== SERVICES ========== -->
-  <section id="services">
-    <div class="container text-center">
-      <span class="section-label">What we do</span>
-      <h2 class="section-title">Our <span>Premium</span> Services</h2>
-      <p class="section-desc mx-auto">End-to-end solutions that define modern luxury — from concept to curation.</p>
-      <div class="services-grid">
-        <div class="service-card reveal">
-          <i class="fas fa-cube"></i>
-          <h4>Interior Architecture</h4>
-          <p>Space planning, lighting design, and material curation that elevate everyday living.</p>
-        </div>
-        <div class="service-card reveal">
-          <i class="fas fa-chair"></i>
-          <h4>Custom Furniture</h4>
-          <p>One-of-a-kind pieces crafted to complement your spatial narrative and personal style.</p>
-        </div>
-        <div class="service-card reveal">
-          <i class="fas fa-draw-polygon"></i>
-          <h4>Façade & Exterior</h4>
-          <p>Weatherproofing, cladding, and architectural detailing that make a lasting first impression.</p>
-        </div>
-        <div class="service-card reveal">
-          <i class="fas fa-tree"></i>
-          <h4>Landscape & Urban</h4>
-          <p>Green spaces and outdoor environments that blend seamlessly with built forms.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- ============ JAVASCRIPT ============ -->
+<script>
+    // Hamburger toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    const contactForm = document.getElementById('contactForm');
 
-  <!-- ========== FOUNDER & CO-FOUNDER ========== -->
-  <section id="founders">
-    <div class="container text-center">
-      <span class="section-label">Leadership</span>
-      <h2 class="section-title">Meet the <span>Founders</span></h2>
-      <p class="section-desc mx-auto">The creative duo behind Modern Era's distinct design language and unwavering commitment to quality.</p>
+    function closeMobileMenu() {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+    }
 
-      <div class="founders-grid">
-        <!-- Founder -->
-        <div class="founder-card reveal text-left">
-          <div class="founder-avatar"><i class="fas fa-user-tie"></i></div>
-          <h3>Arjun Mehta</h3>
-          <span class="founder-role">Founder & Principal Architect</span>
-          <p>With over 20 years in high-end architecture, Arjun brings a global perspective to every project. A graduate of the Architectural Association in London, his work is defined by clean lines, natural materials, and a deep respect for context.</p>
-          <div class="founde
+    hamburger.addEventListener('click', () => {
+        const isOpen = hamburger.classList.toggle('active');
+        navLinks.classList.toggle('open', isOpen);
+        hamburger.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            closeMobileMenu();
+        });
+    });
+
+    // Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scroll offset for fixed header
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight -
+                16;
+                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Intersection Observer for fade-up animations
+    const fadeElements = document.querySelectorAll('.fade-up');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -40px 0px'
+    });
+
+    fadeElements.forEach(el => observer.observe(el));
+
+    // Portfolio Filter
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    let lastFocusedPortfolioItem = null;
+
+    portfolioItems.forEach(item => {
+        item.tabIndex = 0;
+        item.setAttribute('role', 'button');
+        item.setAttribute('aria-haspopup', 'dialog');
+        item.setAttribute('aria-hidden', 'false');
+        item.setAttribute('aria-label', `Open project details for ${item.dataset.title}`);
+    });
+
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            filterButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+
+            const filterValue = this.dataset.filter;
+
+            portfolioItems.forEach(item => {
+                const category = item.dataset.category;
+                if (filterValue === 'all' || category === filterValue) {
+                    item.style.display = 'block';
+                    item.setAttribute('aria-hidden', 'false');
+                    item.tabIndex = 0;
+                    item.classList.remove('visible');
+                    setTimeout(() => item.classList.add('visible'), 50);
+                } else {
+                    item.style.display = 'none';
+                    item.setAttribute('aria-hidden', 'true');
+                    item.tabIndex = -1;
+                }
+            });
+        });
+    });
+
+    // Portfolio Modal (Lightbox)
+    const modal = document.getElementById('portfolioModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalCategory = document.getElementById('modalCategory');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalClose = document.getElementById('modalClose');
+
+    function openPortfolioModal(item) {
+        lastFocusedPortfolioItem = item;
+        modalImage.src = item.dataset.image;
+        modalImage.alt = item.dataset.title;
+        modalTitle.textContent = item.dataset.title;
+        modalCategory.textContent = item.dataset.categoryLabel;
+        modalDescription.textContent = item.dataset.description;
+
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        modalClose.focus();
+    }
+
+    portfolioItems.forEach(item => {
+        item.addEventListener('click', () => openPortfolioModal(item));
+        item.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openPortfolioModal(item);
+            }
+        });
+    });
+
+    function closeModal() {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (lastFocusedPortfolioItem) {
+            lastFocusedPortfolioItem.focus();
+        }
+    }
+
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', function(e) {
+        if (e.target === this) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+    });
+
+    // Contact form fallback
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const fullName = document.getElementById('fullName').value.trim();
+        const emailAddress = document.getElementById('emailAddress').value.trim();
+        const subjectInput = document.getElementById('projectSubject').value.trim();
+        const projectMessage = document.getElementById('projectMessage').value.trim();
+        const subject = subjectInput || 'New enquiry from Modern Era website';
+        const body = [
+            `Name: ${fullName}`,
+            `Email: ${emailAddress}`,
+            subjectInput ? `Subject: ${subjectInput}` : null,
+            '',
+            'Project details:',
+            projectMessage
+        ].filter(Boolean).join('\n');
+
+        window.location.href = `mailto:modernera09@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+
+    console.log('✨ Modern Era — Founder & Co-Founder section restored.');
+</script>
+</body>
+</html>
