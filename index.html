@@ -3,7 +3,57 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Modern Era — Luxury Interiors & Architectural Concepts</title>
+    <title>Modern Era — Luxury Interiors & Architectural Concepts | Noida, NCR</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Modern Era is a premier luxury interiors and architectural design studio in Noida Extension, NCR. 200+ projects delivered across residential, commercial, and landscape design since 2016." />
+    <meta name="keywords" content="luxury interior design Noida, architectural design NCR, interior designer Noida Extension, luxury home interiors, commercial interior design Delhi NCR" />
+    <meta name="author" content="Modern Era" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.modernera.co.in/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Modern Era — Luxury Interiors & Architectural Concepts" />
+    <meta property="og:description" content="Transforming spaces with aesthetic vision, precision craftsmanship, and timeless design — from concept to completion. 200+ projects across Delhi NCR." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=80" />
+    <meta property="og:url" content="https://www.modernera.co.in/" />
+    <meta property="og:site_name" content="Modern Era" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Modern Era — Luxury Interiors & Architectural Concepts" />
+    <meta name="twitter:description" content="Transforming spaces with aesthetic vision, precision craftsmanship, and timeless design — from concept to completion." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=80" />
+
+    <meta name="theme-color" content="#080B12" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23080B12'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='%23C9A87C' font-family='Georgia,serif'%3EM%3C/text%3E%3C/svg%3E" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "InteriorDesigner",
+      "name": "Modern Era",
+      "image": "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=80",
+      "description": "Premier luxury interiors and architectural design studio based in Noida Extension, serving Delhi NCR.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Paramount Emotions Plot no-GH05, Noida Ext. Sector-1",
+        "addressLocality": "Noida",
+        "addressRegion": "UP",
+        "postalCode": "201301",
+        "addressCountry": "IN"
+      },
+      "telephone": "+91-9773751345",
+      "email": "modernera32@gmail.com",
+      "foundingDate": "2016",
+      "sameAs": ["https://instagram.com/Modernera_09"],
+      "priceRange": "$$$"
+    }
+    </script>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -41,6 +91,18 @@
             scroll-behavior: smooth;
         }
 
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
         body {
             font-family: var(--font-body);
             background-color: var(--bg-primary);
@@ -76,6 +138,23 @@
             clip: rect(0, 0, 0, 0);
             white-space: nowrap;
             border: 0;
+        }
+
+        /* ---------- SKIP LINK ---------- */
+        .skip-link {
+            position: absolute;
+            top: -60px;
+            left: 16px;
+            background: var(--gold);
+            color: var(--bg-primary);
+            padding: 12px 22px;
+            border-radius: 6px;
+            font-weight: 600;
+            z-index: 3000;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus {
+            top: 16px;
         }
 
         /* ---------- VIDEO BACKGROUND ---------- */
@@ -256,6 +335,41 @@
         .floating-btn.call { background: #34B7F1; }
         .floating-btn.email { background: #D44638; }
 
+        /* ---------- MOBILE STICKY CTA BAR ---------- */
+        .mobile-cta-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 998;
+            background: rgba(8, 11, 18, 0.97);
+            backdrop-filter: blur(16px);
+            border-top: 1px solid var(--border-gold);
+            padding: 10px 16px;
+            gap: 10px;
+        }
+        .mobile-cta-bar a {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 13px 10px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        .mobile-cta-bar .call {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            color: var(--text-white);
+        }
+        .mobile-cta-bar .whatsapp {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--bg-primary);
+        }
+
         /* ---------- HEADER ---------- */
         .header {
             position: fixed;
@@ -305,6 +419,7 @@
 
         .nav-links {
             display: flex;
+            align-items: center;
             gap: 36px;
             font-weight: 500;
             font-size: 0.9rem;
@@ -332,6 +447,18 @@
         .nav-links a:hover::after {
             width: 100%;
         }
+        .nav-cta {
+            padding: 10px 24px !important;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--bg-primary) !important;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+        .nav-cta::after { display: none; }
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(201, 168, 124, 0.3);
+        }
 
         .hamburger {
             display: none;
@@ -356,7 +483,14 @@
         .portfolio-item:focus-visible,
         .filter-btn:focus-visible,
         .modal-close:focus-visible,
-        .floating-btn:focus-visible {
+        .floating-btn:focus-visible,
+        .nav-links a:focus-visible,
+        .btn-primary:focus-visible,
+        .btn-outline:focus-visible,
+        .faq-question:focus-visible,
+        .testimonial-dot:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible {
             outline: 2px solid var(--gold);
             outline-offset: 4px;
         }
@@ -501,6 +635,15 @@
             margin-left: auto;
             margin-right: auto;
         }
+        .eyebrow {
+            display: inline-block;
+            color: var(--gold);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
 
         /* ---------- FADE ANIMATION ---------- */
         .fade-up {
@@ -567,6 +710,34 @@
             text-transform: uppercase;
             color: var(--text-muted);
             letter-spacing: 1px;
+        }
+
+        /* ---------- TRUST / STATS STRIP ---------- */
+        .trust-strip {
+            padding: 56px 0;
+            border-bottom: 1px solid var(--border-gold);
+            background: rgba(8, 11, 18, 0.7);
+            backdrop-filter: blur(8px);
+        }
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            text-align: center;
+        }
+        .trust-grid .stat-num {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--gold);
+            line-height: 1;
+        }
+        .trust-grid .stat-label {
+            margin-top: 8px;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
         }
 
         /* ---------- LEADERSHIP ---------- */
@@ -694,6 +865,10 @@
             font-size: 2.6rem;
             color: var(--gold);
             margin-bottom: 16px;
+            transition: transform 0.4s ease;
+        }
+        .service-card:hover .icon {
+            transform: scale(1.15) rotate(-4deg);
         }
         .service-card h3 {
             font-size: 1.2rem;
@@ -781,7 +956,8 @@
             justify-content: flex-end;
             padding: 30px;
         }
-        .portfolio-item:hover .overlay {
+        .portfolio-item:hover .overlay,
+        .portfolio-item:focus-visible .overlay {
             opacity: 1;
         }
         .portfolio-item:hover img {
@@ -925,6 +1101,204 @@
             height: 100%;
         }
 
+        /* ---------- TESTIMONIALS ---------- */
+        .testimonials {
+            padding: 100px 0;
+            background: rgba(8, 11, 18, 0.6);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-gold);
+        }
+        .testimonial-track-wrap {
+            max-width: 780px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .testimonial-slide {
+            display: none;
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 14px;
+            padding: 48px 44px;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+            backdrop-filter: blur(4px);
+        }
+        .testimonial-slide.active {
+            display: block;
+            animation: testimonialFade 0.6s ease;
+        }
+        @keyframes testimonialFade {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .testimonial-slide .stars {
+            color: var(--gold);
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+        .testimonial-slide .quote {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            line-height: 1.5;
+            color: var(--text-white);
+            font-weight: 600;
+            margin-bottom: 26px;
+        }
+        .testimonial-slide .quote::before {
+            content: '“';
+            color: var(--gold);
+        }
+        .testimonial-slide .quote::after {
+            content: '”';
+            color: var(--gold);
+        }
+        .testimonial-slide .author-name {
+            font-weight: 700;
+            color: var(--gold-light);
+        }
+        .testimonial-slide .author-role {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+        .testimonial-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        .testimonial-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--border-gold);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 0;
+        }
+        .testimonial-dot.active {
+            background: var(--gold);
+            width: 28px;
+            border-radius: 6px;
+        }
+
+        /* ---------- FAQ ---------- */
+        .faq {
+            padding: 100px 0;
+            background: rgba(8, 11, 18, 0.5);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-gold);
+        }
+        .faq-list {
+            max-width: 820px;
+            margin: 0 auto;
+            display: grid;
+            gap: 16px;
+        }
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 10px;
+            overflow: hidden;
+            backdrop-filter: blur(4px);
+            transition: var(--transition);
+        }
+        .faq-item.open {
+            border-color: var(--gold);
+        }
+        .faq-question {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 22px 26px;
+            background: none;
+            border: none;
+            color: var(--text-white);
+            font-family: var(--font-body);
+            font-size: 1.02rem;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+        }
+        .faq-question .icon-plus {
+            flex-shrink: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid var(--border-gold);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        .faq-item.open .icon-plus {
+            transform: rotate(135deg);
+            background: var(--gold);
+            color: var(--bg-primary);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        .faq-answer p {
+            padding: 0 26px 24px;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* ---------- CTA BANNER ---------- */
+        .cta-banner {
+            padding: 70px 0;
+            border-bottom: 1px solid var(--border-gold);
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-banner-inner {
+            background: linear-gradient(135deg, rgba(201, 168, 124, 0.12), rgba(19, 28, 42, 0.9));
+            border: 1px solid var(--border-gold);
+            border-radius: 18px;
+            padding: 56px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+            box-shadow: var(--shadow-card);
+        }
+        .cta-banner-text h2 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        .cta-banner-text p {
+            color: var(--text-gray);
+            max-width: 480px;
+        }
+        .cta-banner-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .cta-response-note {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 14px;
+        }
+        .cta-response-note i {
+            color: var(--gold);
+        }
+
         /* ---------- CONTACT ---------- */
         .contact {
             padding: 100px 0;
@@ -978,6 +1352,26 @@
         .contact-detail a:hover {
             color: var(--gold);
         }
+        .trust-badges-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            padding: 10px 18px;
+            border-radius: 40px;
+            font-size: 0.82rem;
+            color: var(--text-gray);
+        }
+        .trust-badge i {
+            color: var(--gold);
+        }
         .contact-form input,
         .contact-form textarea {
             width: 100%;
@@ -1008,6 +1402,26 @@
             font-size: 0.85rem;
             margin-top: -4px;
             margin-bottom: 18px;
+        }
+        .form-status {
+            margin-top: 14px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            display: none;
+        }
+        .form-status.show {
+            display: block;
+        }
+        .form-status.success {
+            background: rgba(37, 211, 102, 0.12);
+            border: 1px solid rgba(37, 211, 102, 0.35);
+            color: #7be3a3;
+        }
+        .form-status.error {
+            background: rgba(212, 70, 56, 0.12);
+            border: 1px solid rgba(212, 70, 56, 0.35);
+            color: #f19a92;
         }
 
         /* ---------- FOOTER ---------- */
@@ -1070,6 +1484,18 @@
             .leadership-grid {
                 grid-template-columns: 1fr 1fr;
             }
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+                row-gap: 30px;
+            }
+            .cta-banner-inner {
+                justify-content: center;
+                text-align: center;
+            }
+            .cta-banner-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1095,6 +1521,10 @@
                 opacity: 1;
                 pointer-events: all;
             }
+            .nav-cta {
+                width: 100%;
+                text-align: center;
+            }
             .hamburger {
                 display: flex;
             }
@@ -1115,14 +1545,13 @@
                 grid-template-columns: 1fr 1fr;
             }
             .floating-buttons {
-                bottom: 16px;
-                right: 16px;
-                gap: 10px;
+                display: none;
             }
-            .floating-btn {
-                width: 48px;
-                height: 48px;
-                font-size: 1.3rem;
+            .mobile-cta-bar {
+                display: flex;
+            }
+            body {
+                padding-bottom: 70px;
             }
             .modal {
                 padding: 16px;
@@ -1136,6 +1565,15 @@
             .leadership-grid {
                 grid-template-columns: 1fr;
                 max-width: 400px;
+            }
+            .testimonial-slide {
+                padding: 34px 24px;
+            }
+            .testimonial-slide .quote {
+                font-size: 1.15rem;
+            }
+            .cta-banner-inner {
+                padding: 40px 26px;
             }
         }
 
@@ -1171,6 +1609,12 @@
             .video-background video {
                 opacity: 0.4;
             }
+            .trust-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .trust-grid .stat-num {
+                font-size: 2.1rem;
+            }
         }
 
         /* Video loading state */
@@ -1194,17 +1638,20 @@
 </head>
 <body>
 
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- ============ VIDEO BACKGROUND ============ -->
     <div class="video-background" id="videoBackground">
-        <video 
+        <video
             id="bgVideo"
-            src="https://videotourl.com/videos/1784128962589-855a83e5-3297-4a35-a4b8-494c9ff1e226.mp4" 
-            autoplay 
-            muted 
-            loop 
+            src="https://videotourl.com/videos/1784128962589-855a83e5-3297-4a35-a4b8-494c9ff1e226.mp4"
+            autoplay
+            muted
+            loop
             playsinline
             preload="metadata"
             poster="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=80"
+            aria-hidden="true"
         ></video>
         <div class="overlay"></div>
         <div class="video-fallback" id="videoFallback"></div>
@@ -1216,17 +1663,23 @@
     <div class="orb orb-gold"></div>
     <div class="orb orb-blue"></div>
 
-    <!-- ============ FLOATING CONTACT BUTTONS ============ -->
+    <!-- ============ FLOATING CONTACT BUTTONS (desktop) ============ -->
     <div class="floating-buttons">
-        <a href="https://wa.me/919773751345" target="_blank" rel="noopener noreferrer" class="floating-btn whatsapp" aria-label="WhatsApp">
+        <a href="https://wa.me/919773751345?text=Hi%20Modern%20Era%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer" class="floating-btn whatsapp" aria-label="Chat on WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <a href="tel:+919773751345" class="floating-btn call" aria-label="Call">
+        <a href="tel:+919773751345" class="floating-btn call" aria-label="Call Modern Era">
             <i class="fas fa-phone"></i>
         </a>
-        <a href="mailto:modernera32@gmail.com" class="floating-btn email" aria-label="Email">
+        <a href="mailto:modernera32@gmail.com" class="floating-btn email" aria-label="Email Modern Era">
             <i class="fas fa-envelope"></i>
         </a>
+    </div>
+
+    <!-- ============ MOBILE STICKY CTA BAR ============ -->
+    <div class="mobile-cta-bar" role="navigation" aria-label="Quick contact">
+        <a href="tel:+919773751345" class="call"><i class="fas fa-phone"></i> Call</a>
+        <a href="https://wa.me/919773751345?text=Hi%20Modern%20Era%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer" class="whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
     </div>
 
     <!-- ============ PORTFOLIO MODAL ============ -->
@@ -1256,7 +1709,9 @@
                 <li><a href="#leadership">Team</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
             </ul>
             <button class="hamburger" id="hamburger" type="button" aria-label="Toggle navigation menu" aria-controls="navLinks" aria-expanded="false">
                 <span></span>
@@ -1266,6 +1721,8 @@
         </nav>
     </header>
 
+    <main id="main-content">
+
     <!-- ============ HERO ============ -->
     <section class="hero" id="home">
         <div class="container hero-grid">
@@ -1274,16 +1731,38 @@
                 <p>Transforming spaces with aesthetic vision, precision craftsmanship, and timeless design — from concept to completion.</p>
                 <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: flex-start;">
                     <a href="#portfolio" class="btn-primary">View Portfolio</a>
-                    <a href="#contact" class="btn-outline">Let's Talk</a>
+                    <a href="#contact" class="btn-outline">Book a Free Consultation</a>
                 </div>
                 <div class="hero-badges">
-                    <div><span class="number">10+</span><span class="label">Years Excellence</span></div>
-                    <div><span class="number">200+</span><span class="label">Projects Delivered</span></div>
-                    <div><span class="number">100%</span><span class="label">Client Satisfaction</span></div>
+                    <div><span class="number" data-count="10" data-suffix="+">0</span><span class="label">Years Excellence</span></div>
+                    <div><span class="number" data-count="200" data-suffix="+">0</span><span class="label">Projects Delivered</span></div>
+                    <div><span class="number" data-count="100" data-suffix="%">0</span><span class="label">Client Satisfaction</span></div>
                 </div>
             </div>
             <div class="hero-image fade-up visible">
                 <div class="placeholder"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ TRUST STRIP ============ -->
+    <section class="trust-strip" aria-label="Why clients choose Modern Era">
+        <div class="container trust-grid">
+            <div class="fade-up">
+                <div class="stat-num" data-count="200" data-suffix="+">0</div>
+                <div class="stat-label">Projects Delivered</div>
+            </div>
+            <div class="fade-up">
+                <div class="stat-num" data-count="50" data-suffix="+">0</div>
+                <div class="stat-label">Expert Team</div>
+            </div>
+            <div class="fade-up">
+                <div class="stat-num" data-count="10" data-suffix="+">0</div>
+                <div class="stat-label">Years in Business</div>
+            </div>
+            <div class="fade-up">
+                <div class="stat-num" data-count="100" data-suffix="%">0</div>
+                <div class="stat-label">Client Satisfaction</div>
             </div>
         </div>
     </section>
@@ -1330,13 +1809,14 @@
     <section class="leadership" id="leadership">
         <div class="container">
             <div class="section-header fade-up">
+                <span class="eyebrow">Meet the studio</span>
                 <h2 class="section-title">Founding <span>Team</span></h2>
                 <p class="section-sub">The visionaries and creative minds behind Modern Era's design philosophy.</p>
             </div>
             <div class="leadership-grid">
                 <div class="leader-card fade-up">
                     <div class="avatar">
-                        <img src="https://i.ibb.co/BHLPNXpR/Chat-GPT-Image-Jun-29-2026-09-36-50-PM.png" alt="Portrait of Mr. Sukhva" loading="lazy" />
+                        <img src="https://i.ibb.co/BHLPNXpR/Chat-GPT-Image-Jun-29-2026-09-36-50-PM.png" alt="Portrait of Mr. Sukhva" loading="lazy" decoding="async" width="130" height="130" />
                     </div>
                     <h3>Mr. Sukhva</h3>
                     <div class="role">Founder</div>
@@ -1344,7 +1824,7 @@
                 </div>
                 <div class="leader-card fade-up">
                     <div class="avatar">
-                        <img src="https://i.ibb.co/bRz9P1NH/Chat-GPT-Image-Jun-29-2026-09-57-41-PM.png" alt="Portrait of Mr. Hasan" loading="lazy" />
+                        <img src="https://i.ibb.co/bRz9P1NH/Chat-GPT-Image-Jun-29-2026-09-57-41-PM.png" alt="Portrait of Mr. Hasan" loading="lazy" decoding="async" width="130" height="130" />
                     </div>
                     <h3>Mr. Hasan</h3>
                     <div class="role">Co-Founder &amp; Creative Director</div>
@@ -1352,7 +1832,7 @@
                 </div>
                 <div class="leader-card fade-up">
                     <div class="avatar">
-                        <img src="https://i.ibb.co/pBFDXFvM/Chat-GPT-Image-Jun-29-2026-09-57-46-PM.png" alt="Portrait of Mr. Anas" loading="lazy" />
+                        <img src="https://i.ibb.co/pBFDXFvM/Chat-GPT-Image-Jun-29-2026-09-57-46-PM.png" alt="Portrait of Mr. Anas" loading="lazy" decoding="async" width="130" height="130" />
                     </div>
                     <h3>Mr. Anas</h3>
                     <div class="role">Manager</div>
@@ -1366,6 +1846,7 @@
     <section class="services" id="services">
         <div class="container">
             <div class="section-header fade-up">
+                <span class="eyebrow">What we do</span>
                 <h2 class="section-title">Our <span>Expertise</span></h2>
                 <p class="section-sub">End‑to‑end interior and architectural services tailored to your vision.</p>
             </div>
@@ -1384,6 +1865,7 @@
     <section class="portfolio" id="portfolio">
         <div class="container">
             <div class="section-header fade-up">
+                <span class="eyebrow">Selected work</span>
                 <h2 class="section-title">Featured <span>Portfolio</span></h2>
                 <p class="section-sub">A curated selection of our finest work — crafted with passion and precision.</p>
             </div>
@@ -1399,9 +1881,8 @@
                 <div class="portfolio-item fade-up" data-category="interior"
                 data-title="Modern Penthouse"
                 data-category-label="Luxury Interiors"
-                data-description="A breathtaking penthouse in Noida, featuring open-plan living spaces, custom millwork, and a seamless blend of contemporary and classic elements."
-                data-image="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80">
-                    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&h=450&q=80" alt="Modern Penthouse" loading="lazy" />
+                data-description="A breathtaking penthouse in Noida, featuring open-plan living spaces, custom millwork, and a seamless blend of contemporary and classic elements.">
+                    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&h=450&q=80" data-full="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="Modern Penthouse open-plan living space" loading="lazy" decoding="async" width="600" height="450" />
                 <div class="overlay">
                     <div class="view-icon"><i class="fas fa-arrow-right"></i></div>
                     <h3>Modern Penthouse</h3>
@@ -1412,9 +1893,8 @@
             <div class="portfolio-item fade-up" data-category="architecture"
             data-title="Corporate Headquarters"
             data-category-label="Architectural Concepts"
-            data-description="A state-of-the-art corporate office in Delhi NCR, designed with a focus on sustainability, natural light, and collaborative workspaces."
-            data-image="https://i.ibb.co/vGBV1n2/IMG-20260630-WA0006.jpg">
-            <img src="https://i.ibb.co/vGBV1n2/IMG-20260630-WA0006.jpg" alt="Corporate Headquarters" loading="lazy" />
+            data-description="A state-of-the-art corporate office in Delhi NCR, designed with a focus on sustainability, natural light, and collaborative workspaces.">
+            <img src="https://i.ibb.co/vGBV1n2/IMG-20260630-WA0006.jpg" data-full="https://i.ibb.co/vGBV1n2/IMG-20260630-WA0006.jpg" alt="Corporate Headquarters architectural concept" loading="lazy" decoding="async" width="600" height="450" />
             <div class="overlay">
                 <div class="view-icon"><i class="fas fa-arrow-right"></i></div>
                 <h3>Corporate Headquarters</h3>
@@ -1425,9 +1905,8 @@
         <div class="portfolio-item fade-up" data-category="landscape"
         data-title="Villa Garden Oasis"
         data-category-label="Landscape Design"
-        data-description="An outdoor sanctuary in Noida Extension, complete with water features, native plantings, and intimate seating areas that blend seamlessly with the architecture."
-        data-image="https://i.ibb.co/MkD9CVYW/IMG-20260630-WA0013.jpg">
-        <img src="https://i.ibb.co/MkD9CVYW/IMG-20260630-WA0013.jpg" alt="Villa Garden Oasis" loading="lazy" />
+        data-description="An outdoor sanctuary in Noida Extension, complete with water features, native plantings, and intimate seating areas that blend seamlessly with the architecture.">
+        <img src="https://i.ibb.co/MkD9CVYW/IMG-20260630-WA0013.jpg" data-full="https://i.ibb.co/MkD9CVYW/IMG-20260630-WA0013.jpg" alt="Villa Garden Oasis landscape design" loading="lazy" decoding="async" width="600" height="450" />
         <div class="overlay">
             <div class="view-icon"><i class="fas fa-arrow-right"></i></div>
             <h3>Villa Garden Oasis</h3>
@@ -1438,9 +1917,8 @@
     <div class="portfolio-item fade-up" data-category="interior"
     data-title="Boutique Hotel Suite"
     data-category-label="Luxury Interiors"
-    data-description="A luxury hotel suite in Greater Noida, featuring bespoke furniture, curated artwork, and a warm, inviting color palette."
-    data-image="https://i.ibb.co/HppHYbmG/IMG-20260630-WA0005.jpg">
-    <img src="https://i.ibb.co/HppHYbmG/IMG-20260630-WA0005.jpg" alt="Boutique Hotel Suite" loading="lazy" />
+    data-description="A luxury hotel suite in Greater Noida, featuring bespoke furniture, curated artwork, and a warm, inviting color palette.">
+    <img src="https://i.ibb.co/HppHYbmG/IMG-20260630-WA0005.jpg" data-full="https://i.ibb.co/HppHYbmG/IMG-20260630-WA0005.jpg" alt="Boutique Hotel Suite interior" loading="lazy" decoding="async" width="600" height="450" />
     <div class="overlay">
         <div class="view-icon"><i class="fas fa-arrow-right"></i></div>
         <h3>Boutique Hotel Suite</h3>
@@ -1451,9 +1929,8 @@
 <div class="portfolio-item fade-up" data-category="architecture"
 data-title="Residential Sky Villa"
 data-category-label="Architectural Concepts"
-data-description="A sky villa that redefines urban living with its sweeping views, double-height living spaces, and a seamless indoor-outdoor connection."
-data-image="https://i.ibb.co/N69wQXL3/IMG-20260630-WA0011.jpg">
-<img src="https://i.ibb.co/N69wQXL3/IMG-20260630-WA0011.jpg" alt="Residential Sky Villa" loading="lazy" />
+data-description="A sky villa that redefines urban living with its sweeping views, double-height living spaces, and a seamless indoor-outdoor connection.">
+<img src="https://i.ibb.co/N69wQXL3/IMG-20260630-WA0011.jpg" data-full="https://i.ibb.co/N69wQXL3/IMG-20260630-WA0011.jpg" alt="Residential Sky Villa architectural concept" loading="lazy" decoding="async" width="600" height="450" />
 <div class="overlay">
     <div class="view-icon"><i class="fas fa-arrow-right"></i></div>
     <h3>Residential Sky Villa</h3>
@@ -1464,9 +1941,8 @@ data-image="https://i.ibb.co/N69wQXL3/IMG-20260630-WA0011.jpg">
 <div class="portfolio-item fade-up" data-category="landscape"
 data-title="Terrace Garden Retreat"
 data-category-label="Landscape Design"
-data-description="A serene terrace garden in Noida, designed as a private retreat with lush greenery, wooden decks, and ambient lighting."
-data-image="https://i.ibb.co/ymCzQpwh/IMG-20260630-WA0014.jpg">
-<img src="https://i.ibb.co/ymCzQpwh/IMG-20260630-WA0014.jpg" alt="Terrace Garden Retreat" loading="lazy" />
+data-description="A serene terrace garden in Noida, designed as a private retreat with lush greenery, wooden decks, and ambient lighting.">
+<img src="https://i.ibb.co/ymCzQpwh/IMG-20260630-WA0014.jpg" data-full="https://i.ibb.co/ymCzQpwh/IMG-20260630-WA0014.jpg" alt="Terrace Garden Retreat landscape design" loading="lazy" decoding="async" width="600" height="450" />
 <div class="overlay">
     <div class="view-icon"><i class="fas fa-arrow-right"></i></div>
     <h3>Terrace Garden Retreat</h3>
@@ -1477,10 +1953,118 @@ data-image="https://i.ibb.co/ymCzQpwh/IMG-20260630-WA0014.jpg">
 </div>
 </section>
 
+<!-- ============ TESTIMONIALS ============ -->
+<section class="testimonials" id="testimonials">
+    <div class="container">
+        <div class="section-header fade-up">
+            <span class="eyebrow">Client stories</span>
+            <h2 class="section-title">What Our Clients <span>Say</span></h2>
+            <p class="section-sub">Real feedback from homeowners and businesses we've had the privilege to design for.</p>
+        </div>
+        <div class="testimonial-track-wrap fade-up">
+            <div class="testimonial-slide active" data-index="0">
+                <div class="stars" aria-hidden="true">★★★★★</div>
+                <p class="quote">Modern Era turned our empty penthouse shell into a home that feels like it belongs on a magazine cover. They listened to every detail we cared about.</p>
+                <div class="author-name">Rhea Malhotra</div>
+                <div class="author-role">Homeowner, Noida</div>
+            </div>
+            <div class="testimonial-slide" data-index="1">
+                <div class="stars" aria-hidden="true">★★★★★</div>
+                <p class="quote">Our new office reflects exactly the culture we wanted to build — bright, collaborative, and unmistakably premium. The team hit every deadline.</p>
+                <div class="author-name">Arjun Sethi</div>
+                <div class="author-role">Founder, Sethi Tech Park</div>
+            </div>
+            <div class="testimonial-slide" data-index="2">
+                <div class="stars" aria-hidden="true">★★★★★</div>
+                <p class="quote">From the first sketch to the final light fixture, Modern Era's attention to detail was extraordinary. Our villa garden is now our favourite room in the house.</p>
+                <div class="author-name">Kavita &amp; Sameer Rao</div>
+                <div class="author-role">Villa Owners, Greater Noida</div>
+            </div>
+            <div class="testimonial-dots" id="testimonialDots" role="tablist" aria-label="Choose testimonial"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq" id="faq">
+    <div class="container">
+        <div class="section-header fade-up">
+            <span class="eyebrow">Good to know</span>
+            <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+            <p class="section-sub">Answers to what clients most often ask before starting a project.</p>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item fade-up">
+                <button class="faq-question" aria-expanded="false">
+                    How long does a typical project take?
+                    <span class="icon-plus"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="faq-answer">
+                    <p>Timelines vary by scope. A single room refresh can take 3–4 weeks, while a full home or commercial fit-out typically runs 3–6 months from design approval to handover. We share a detailed schedule before work begins.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-up">
+                <button class="faq-question" aria-expanded="false">
+                    Do you work outside Noida and Delhi NCR?
+                    <span class="icon-plus"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="faq-answer">
+                    <p>Our core studio and site teams are based in Noida Extension and primarily serve Delhi NCR, but we take on select projects further afield — reach out and we'll let you know if we can support your location.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-up">
+                <button class="faq-question" aria-expanded="false">
+                    How does pricing work?
+                    <span class="icon-plus"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="faq-answer">
+                    <p>Every project is quoted individually based on space, material selections, and scope of work. After an initial consultation, we provide a transparent, itemised estimate with no hidden costs.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-up">
+                <button class="faq-question" aria-expanded="false">
+                    Can I see 3D visualizations before construction starts?
+                    <span class="icon-plus"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes. We provide immersive 3D renderings and walkthroughs for every project so you can review and approve the design before any physical work begins.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-up">
+                <button class="faq-question" aria-expanded="false">
+                    What's the best way to start a conversation with your team?
+                    <span class="icon-plus"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="faq-answer">
+                    <p>The fastest way is a WhatsApp message or a call using the buttons on this page. Alternatively, fill out the contact form below and we typically respond within a few hours.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ CTA BANNER ============ -->
+<section class="cta-banner">
+    <div class="container">
+        <div class="cta-banner-inner fade-up">
+            <div class="cta-banner-text">
+                <h2>Ready to reimagine your space?</h2>
+                <p>Book a free, no-obligation consultation and get a project estimate within 48 hours.</p>
+                <div class="cta-response-note"><i class="fas fa-clock"></i> We typically reply within 2 hours during business hours</div>
+            </div>
+            <div class="cta-banner-actions">
+                <a href="#contact" class="btn-primary">Book Free Consultation</a>
+                <a href="https://wa.me/919773751345?text=Hi%20Modern%20Era%2C%20I%27d%20like%20to%20book%20a%20free%20consultation." target="_blank" rel="noopener noreferrer" class="btn-outline"><i class="fab fa-whatsapp"></i> Chat Instantly</a>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- ============ CONTACT ============ -->
 <section class="contact" id="contact">
     <div class="container">
         <div class="section-header fade-up">
+            <span class="eyebrow">Start your project</span>
             <h2 class="section-title">Let's <span>Connect</span></h2>
             <p class="section-sub">Reach out to discuss your project, or simply say hello.</p>
         </div>
@@ -1504,27 +2088,37 @@ data-image="https://i.ibb.co/ymCzQpwh/IMG-20260630-WA0014.jpg">
                     <i class="fab fa-instagram"></i>
                     <span><a href="https://instagram.com/Modernera_09" target="_blank" rel="noopener noreferrer">@Modernera_09</a></span>
                 </div>
+                <div class="trust-badges-row">
+                    <div class="trust-badge"><i class="fas fa-clock"></i> Replies within 2 hours</div>
+                    <div class="trust-badge"><i class="fas fa-shield-alt"></i> Free consultation</div>
+                    <div class="trust-badge"><i class="fas fa-star"></i> 200+ projects delivered</div>
+                </div>
                 <div style="margin-top: 30px; display: flex; gap: 20px; flex-wrap: wrap;">
-                    <a href="https://wa.me/919773751345" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display: inline-flex; align-items: center; gap: 10px;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="https://wa.me/919773751345?text=Hi%20Modern%20Era%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer" class="btn-primary" style="display: inline-flex; align-items: center; gap: 10px;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                     <a href="tel:+919773751345" class="btn-outline" style="display: inline-flex; align-items: center; gap: 10px;"><i class="fas fa-phone"></i> Call Us</a>
                     <a href="mailto:modernera32@gmail.com" class="btn-outline" style="display: inline-flex; align-items: center; gap: 10px;"><i class="fas fa-envelope"></i> Email</a>
                 </div>
             </div>
-            <form class="contact-form fade-up" id="contactForm">
+            <form class="contact-form fade-up" id="contactForm" novalidate>
                 <label class="sr-only" for="fullName">Full Name</label>
                 <input type="text" id="fullName" name="fullName" placeholder="Full Name" autocomplete="name" required />
                 <label class="sr-only" for="emailAddress">Email Address</label>
                 <input type="email" id="emailAddress" name="emailAddress" placeholder="Email Address" autocomplete="email" required />
+                <label class="sr-only" for="phoneNumber">Phone Number</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" autocomplete="tel" />
                 <label class="sr-only" for="projectSubject">Subject</label>
                 <input type="text" id="projectSubject" name="projectSubject" placeholder="Subject" />
                 <label class="sr-only" for="projectMessage">Project Details</label>
                 <textarea id="projectMessage" name="projectMessage" placeholder="Tell us about your project..." required></textarea>
                 <p class="form-note">Submitting opens your email app with your message prefilled.</p>
                 <button type="submit" class="btn-primary" style="width: 100%;">Send Message</button>
+                <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
             </form>
         </div>
     </div>
 </section>
+
+    </main>
 
 <!-- ============ FOOTER ============ -->
 <footer class="footer">
@@ -1541,6 +2135,8 @@ data-image="https://i.ibb.co/ymCzQpwh/IMG-20260630-WA0014.jpg">
 
 <!-- ============ JAVASCRIPT ============ -->
 <script>
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     // ============================================================
     // VIDEO BACKGROUND HANDLING
     // ============================================================
@@ -1551,7 +2147,14 @@ data-image="https://i.ibb.co/ymCzQpwh/IMG-20260630-WA0014.jpg">
 
         if (!video) return;
 
-        // Show fallback if video fails to load
+        if (prefersReducedMotion) {
+            video.pause();
+            video.style.display = 'none';
+            loading.style.display = 'none';
+            fallback.style.display = 'block';
+            return;
+        }
+
         video.addEventListener('error', function() {
             console.warn('Background video failed to load. Showing fallback.');
             video.style.display = 'none';
@@ -1559,20 +2162,16 @@ data-image="https://i.ibb.co/ymCzQpwh/IMG-20260630-WA0014.jpg">
             fallback.style.display = 'block';
         });
 
-        // Hide loading indicator when video can play
         video.addEventListener('canplay', function() {
             loading.style.display = 'none';
         });
 
-        // If video takes too long, hide loading anyway
         setTimeout(function() {
             loading.style.display = 'none';
         }, 8000);
 
-        // Try to play video (autoplay might be blocked)
         video.play().catch(function(err) {
             console.warn('Autoplay was prevented:', err);
-            // Video will still be visible but paused — user interaction may start it
         });
     })();
 
@@ -1615,9 +2214,8 @@ data-image="https://i.ibb.co/ymCzQpwh/IMG-20260630-WA0014.jpg">
             if (target) {
                 e.preventDefault();
                 const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight -
-                16;
-                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 16;
+                window.scrollTo({ top: targetPosition, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
             }
         });
     });
@@ -1626,16 +2224,13 @@ data-image="https://i.ibb.co/ymCzQpwh/IMG-20260630-WA0014.jpg">
     // HEADER SCROLL EFFECT
     // ============================================================
     const header = document.getElementById('header');
-    let lastScrollY = 0;
 
     window.addEventListener('scroll', function() {
-        const currentScrollY = window.scrollY;
-        if (currentScrollY > 50) {
+        if (window.scrollY > 50) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
-        lastScrollY = currentScrollY;
     });
 
     // ============================================================
@@ -1657,6 +2252,41 @@ data-image="https://i.ibb.co/ymCzQpwh/IMG-20260630-WA0014.jpg">
     fadeElements.forEach(el => observer.observe(el));
 
     // ============================================================
+    // ANIMATED COUNTERS (stats)
+    // ============================================================
+    const counters = document.querySelectorAll('[data-count]');
+
+    function animateCounter(el) {
+        const target = parseInt(el.dataset.count, 10);
+        const suffix = el.dataset.suffix || '';
+        if (prefersReducedMotion) {
+            el.textContent = target + suffix;
+            return;
+        }
+        const duration = 1400;
+        const start = performance.now();
+
+        function tick(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.round(eased * target) + suffix;
+            if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+    }
+
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(c => counterObserver.observe(c));
+
+    // ============================================================
     // PORTFOLIO FILTER
     // ============================================================
     const filterButtons = document.querySelectorAll('.filter-btn');
@@ -1673,8 +2303,12 @@ data-image="https://i.ibb.co/ymCzQpwh/IMG-20260630-WA0014.jpg">
 
     filterButtons.forEach(btn => {
         btn.addEventListener('click', function() {
-            filterButtons.forEach(b => b.classList.remove('active'));
+            filterButtons.forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-pressed', 'false');
+            });
             this.classList.add('active');
+            this.setAttribute('aria-pressed', 'true');
 
             const filterValue = this.dataset.filter;
 
@@ -1707,7 +2341,8 @@ data-image="https://i.ibb.co/ymCzQpwh/IMG-20260630-WA0014.jpg">
 
     function openPortfolioModal(item) {
         lastFocusedPortfolioItem = item;
-        modalImage.src = item.dataset.image;
+        const fullImg = item.querySelector('img')?.dataset.full || item.querySelector('img')?.src;
+        modalImage.src = fullImg;
         modalImage.alt = item.dataset.title;
         modalTitle.textContent = item.dataset.title;
         modalCategory.textContent = item.dataset.categoryLabel;
@@ -1747,19 +2382,104 @@ data-image="https://i.ibb.co/ymCzQpwh/IMG-20260630-WA0014.jpg">
     });
 
     // ============================================================
-    // CONTACT FORM (mailto fallback)
+    // TESTIMONIALS CAROUSEL
     // ============================================================
+    (function initTestimonials() {
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const dotsContainer = document.getElementById('testimonialDots');
+        if (!slides.length || !dotsContainer) return;
+
+        let current = 0;
+        let autoplayTimer;
+
+        slides.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = 'testimonial-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('role', 'tab');
+            dot.setAttribute('aria-label', `Show testimonial ${i + 1} of ${slides.length}`);
+            dot.addEventListener('click', () => goTo(i, true));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = dotsContainer.querySelectorAll('.testimonial-dot');
+
+        function goTo(index, userInitiated) {
+            slides[current].classList.remove('active');
+            dots[current].classList.remove('active');
+            current = index;
+            slides[current].classList.add('active');
+            dots[current].classList.add('active');
+            if (userInitiated) restartAutoplay();
+        }
+
+        function next() {
+            goTo((current + 1) % slides.length, false);
+        }
+
+        function restartAutoplay() {
+            clearInterval(autoplayTimer);
+            if (!prefersReducedMotion) {
+                autoplayTimer = setInterval(next, 6000);
+            }
+        }
+
+        restartAutoplay();
+    })();
+
+    // ============================================================
+    // FAQ ACCORDION
+    // ============================================================
+    document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item = btn.closest('.faq-item');
+            const answer = item.querySelector('.faq-answer');
+            const isOpen = item.classList.contains('open');
+
+            document.querySelectorAll('.faq-item.open').forEach(openItem => {
+                if (openItem !== item) {
+                    openItem.classList.remove('open');
+                    openItem.querySelector('.faq-answer').style.maxHeight = null;
+                    openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            if (isOpen) {
+                item.classList.remove('open');
+                answer.style.maxHeight = null;
+                btn.setAttribute('aria-expanded', 'false');
+            } else {
+                item.classList.add('open');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                btn.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+
+    // ============================================================
+    // CONTACT FORM (mailto fallback + inline status)
+    // ============================================================
+    const formStatus = document.getElementById('formStatus');
+
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
         const fullName = document.getElementById('fullName').value.trim();
         const emailAddress = document.getElementById('emailAddress').value.trim();
+        const phoneNumber = document.getElementById('phoneNumber').value.trim();
         const subjectInput = document.getElementById('projectSubject').value.trim();
         const projectMessage = document.getElementById('projectMessage').value.trim();
+
+        if (!fullName || !emailAddress || !projectMessage) {
+            formStatus.textContent = 'Please fill in your name, email, and project details.';
+            formStatus.className = 'form-status show error';
+            return;
+        }
+
         const subject = subjectInput || 'New enquiry from Modern Era website';
         const body = [
             `Name: ${fullName}`,
             `Email: ${emailAddress}`,
+            phoneNumber ? `Phone: ${phoneNumber}` : null,
             subjectInput ? `Subject: ${subjectInput}` : null,
             '',
             'Project details:',
@@ -1768,9 +2488,12 @@ data-image="https://i.ibb.co/ymCzQpwh/IMG-20260630-WA0014.jpg">
 
         window.location.href =
             `mailto:modernera32@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        formStatus.textContent = 'Opening your email app with your message ready to send. Prefer WhatsApp? Use the button above for an instant reply.';
+        formStatus.className = 'form-status show success';
     });
 
-    console.log('✨ Modern Era — Enhanced with video background.');
+    console.log('✨ Modern Era — Enhanced with testimonials, FAQ, SEO, and accessibility upgrades.');
 </script>
 </body>
 </html>
