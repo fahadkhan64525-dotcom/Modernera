@@ -21,17 +21,17 @@
         :root {
             --bg-primary: #080B12;
             --bg-secondary: #0E1520;
-            --bg-card: #131C2A;
-            --bg-card-hover: #1B2840;
+            --bg-card: rgba(19, 28, 42, 0.85);
+            --bg-card-hover: rgba(27, 40, 64, 0.95);
             --gold: #C9A87C;
             --gold-light: #E4C9A0;
             --gold-dark: #A8895E;
-            --gold-glow: rgba(201, 168, 124, 0.12);
+            --gold-glow: rgba(201, 168, 124, 0.15);
             --text-white: #F8FAFC;
-            --text-gray: #94A3B8;
-            --text-muted: #64748B;
-            --border-gold: rgba(201, 168, 124, 0.12);
-            --shadow-card: 0 20px 40px -12px rgba(0, 0, 0, 0.6);
+            --text-gray: #CBD5E1;
+            --text-muted: #94A3B8;
+            --border-gold: rgba(201, 168, 124, 0.15);
+            --shadow-card: 0 20px 40px -12px rgba(0, 0, 0, 0.8);
             --font-body: 'Inter', sans-serif;
             --font-heading: 'Playfair Display', serif;
             --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -78,35 +78,65 @@
             border: 0;
         }
 
-        /* ---------- UNIQUE ANIMATED BACKGROUND ---------- */
-        .animated-bg {
+        /* ---------- VIDEO BACKGROUND ---------- */
+        .video-background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -2;
-            background: radial-gradient(ellipse at 20% 50%, rgba(201, 168, 124, 0.07) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 20%, rgba(56, 89, 138, 0.06) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 80%, rgba(201, 168, 124, 0.04) 0%, transparent 50%),
-                #080B12;
+            overflow: hidden;
+            background: var(--bg-primary);
+        }
+
+        .video-background video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            opacity: 0.6;
+            transition: opacity 0.8s ease;
+        }
+
+        .video-background .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at 30% 40%, rgba(8, 11, 18, 0.4) 0%, rgba(8, 11, 18, 0.85) 100%);
+            pointer-events: none;
+        }
+
+        /* Fallback animated gradient when video isn't available */
+        .video-fallback {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at 20% 50%, rgba(201, 168, 124, 0.08) 0%, transparent 60%),
+                        radial-gradient(ellipse at 80% 20%, rgba(56, 89, 138, 0.06) 0%, transparent 50%),
+                        radial-gradient(ellipse at 50% 80%, rgba(201, 168, 124, 0.04) 0%, transparent 50%),
+                        #080B12;
             background-size: 200% 200%;
             animation: gradientMesh 18s ease-in-out infinite alternate;
         }
 
         @keyframes gradientMesh {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        /* Subtle noise texture overlay */
+        /* Noise texture overlay */
         .noise-texture {
             position: fixed;
             top: 0;
@@ -128,18 +158,18 @@
             filter: blur(120px);
             pointer-events: none;
             z-index: -1;
-            opacity: 0.5;
+            opacity: 0.3;
             animation: orbFloat 20s ease-in-out infinite alternate;
         }
         .orb-gold {
-            background: rgba(201, 168, 124, 0.08);
+            background: rgba(201, 168, 124, 0.06);
             width: 500px;
             height: 500px;
             top: -10%;
             right: -5%;
         }
         .orb-blue {
-            background: rgba(56, 89, 138, 0.06);
+            background: rgba(56, 89, 138, 0.05);
             width: 400px;
             height: 400px;
             bottom: -10%;
@@ -148,12 +178,8 @@
         }
 
         @keyframes orbFloat {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-            100% {
-                transform: translate(30px, 30px) scale(1.1);
-            }
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, 30px) scale(1.1); }
         }
 
         /* ---------- BUTTONS ---------- */
@@ -226,15 +252,9 @@
         .floating-btn:hover {
             transform: scale(1.1) translateY(-3px);
         }
-        .floating-btn.whatsapp {
-            background: #25D366;
-        }
-        .floating-btn.call {
-            background: #34B7F1;
-        }
-        .floating-btn.email {
-            background: #D44638;
-        }
+        .floating-btn.whatsapp { background: #25D366; }
+        .floating-btn.call { background: #34B7F1; }
+        .floating-btn.email { background: #D44638; }
 
         /* ---------- HEADER ---------- */
         .header {
@@ -243,10 +263,15 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(8, 11, 18, 0.85);
+            background: rgba(8, 11, 18, 0.75);
             backdrop-filter: blur(16px) saturate(180%);
             border-bottom: 1px solid var(--border-gold);
             transition: var(--transition);
+        }
+
+        .header.scrolled {
+            background: rgba(8, 11, 18, 0.92);
+            backdrop-filter: blur(20px) saturate(200%);
         }
 
         .nav {
@@ -351,6 +376,9 @@
             padding: 180px 0 140px;
             position: relative;
             border-bottom: 1px solid var(--border-gold);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
         }
 
         .hero-grid {
@@ -367,6 +395,7 @@
             line-height: 1.08;
             margin-bottom: 20px;
             font-weight: 800;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
         }
         .hero-content h1 span {
             color: var(--gold);
@@ -387,6 +416,7 @@
             color: var(--text-gray);
             max-width: 520px;
             margin-bottom: 40px;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
         }
         .hero-badges {
             display: flex;
@@ -405,6 +435,7 @@
             color: var(--gold);
             font-weight: 700;
             line-height: 1;
+            text-shadow: 0 2px 20px rgba(201, 168, 124, 0.15);
         }
         .hero-badges .label {
             font-size: 0.75rem;
@@ -420,12 +451,13 @@
             background: var(--bg-card);
             border: 1px solid var(--border-gold);
             border-radius: 12px;
-            background-image: url('https://picsum.photos/seed/modernera_hero/800/500');
+            background-image: url('https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=800&q=80');
             background-size: cover;
             background-position: center;
             position: relative;
             box-shadow: var(--shadow-card);
             transition: var(--transition);
+            backdrop-filter: blur(4px);
         }
         .hero-image .placeholder:hover {
             transform: scale(1.01);
@@ -484,8 +516,8 @@
         /* ---------- ABOUT ---------- */
         .about {
             padding: 100px 0;
-            background: rgba(14, 21, 32, 0.6);
-            backdrop-filter: blur(2px);
+            background: rgba(8, 11, 18, 0.6);
+            backdrop-filter: blur(8px);
             border-bottom: 1px solid var(--border-gold);
         }
         .about-grid {
@@ -518,6 +550,7 @@
             text-align: center;
             border: 1px solid var(--border-gold);
             transition: var(--transition);
+            backdrop-filter: blur(4px);
         }
         .about-stats-mini div:hover {
             border-color: var(--gold);
@@ -536,17 +569,18 @@
             letter-spacing: 1px;
         }
 
-        /* ---------- FOUNDER & CO-FOUNDER (LEADERSHIP) ---------- */
+        /* ---------- LEADERSHIP ---------- */
         .leadership {
             padding: 100px 0;
-            background: rgba(8, 11, 18, 0.4);
+            background: rgba(8, 11, 18, 0.5);
+            backdrop-filter: blur(8px);
             border-bottom: 1px solid var(--border-gold);
         }
         .leadership-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 40px;
-            max-width: 900px;
+            max-width: 1100px;
             margin: 20px auto 0;
         }
         .leader-card {
@@ -557,12 +591,13 @@
             text-align: center;
             transition: var(--transition);
             box-shadow: var(--shadow-card);
+            backdrop-filter: blur(4px);
         }
         .leader-card:hover {
             transform: translateY(-10px);
             border-color: var(--gold);
             background: var(--bg-card-hover);
-            box-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.8);
         }
         .leader-card .avatar {
             width: 130px;
@@ -615,7 +650,8 @@
         /* ---------- SERVICES ---------- */
         .services {
             padding: 100px 0;
-            background: rgba(8, 11, 18, 0.4);
+            background: rgba(8, 11, 18, 0.5);
+            backdrop-filter: blur(8px);
             border-bottom: 1px solid var(--border-gold);
         }
         .services-grid {
@@ -632,6 +668,7 @@
             cursor: default;
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(4px);
         }
         .service-card::before {
             content: '';
@@ -668,11 +705,11 @@
             font-size: 0.95rem;
         }
 
-        /* ---------- UPGRADED PORTFOLIO ---------- */
+        /* ---------- PORTFOLIO ---------- */
         .portfolio {
             padding: 100px 0;
-            background: rgba(14, 21, 32, 0.6);
-            backdrop-filter: blur(2px);
+            background: rgba(8, 11, 18, 0.5);
+            backdrop-filter: blur(8px);
             border-bottom: 1px solid var(--border-gold);
         }
 
@@ -695,6 +732,7 @@
             transition: var(--transition);
             font-family: var(--font-body);
             letter-spacing: 0.5px;
+            backdrop-filter: blur(4px);
         }
         .filter-btn:hover {
             border-color: var(--gold);
@@ -735,7 +773,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(transparent 30%, rgba(8, 11, 18, 0.9) 100%);
+            background: linear-gradient(transparent 30%, rgba(8, 11, 18, 0.95) 100%);
             opacity: 0;
             transition: var(--transition);
             display: flex;
@@ -751,7 +789,7 @@
         }
         .portfolio-item:hover {
             border-color: var(--gold);
-            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.8);
         }
 
         .portfolio-item .overlay h3 {
@@ -797,7 +835,7 @@
             opacity: 1;
         }
 
-        /* ---------- PORTFOLIO MODAL ---------- */
+        /* ---------- MODAL ---------- */
         .modal {
             display: none;
             position: fixed;
@@ -890,7 +928,8 @@
         /* ---------- CONTACT ---------- */
         .contact {
             padding: 100px 0;
-            background: rgba(8, 11, 18, 0.4);
+            background: rgba(8, 11, 18, 0.5);
+            backdrop-filter: blur(8px);
             border-bottom: 1px solid var(--border-gold);
         }
         .contact-grid {
@@ -951,6 +990,7 @@
             font-size: 1rem;
             margin-bottom: 18px;
             transition: var(--transition);
+            backdrop-filter: blur(4px);
         }
         .contact-form input:focus,
         .contact-form textarea:focus {
@@ -974,7 +1014,8 @@
         .footer {
             padding: 40px 0;
             border-top: 1px solid var(--border-gold);
-            background: rgba(8, 11, 18, 0.8);
+            background: rgba(8, 11, 18, 0.85);
+            backdrop-filter: blur(8px);
             text-align: center;
             color: var(--text-muted);
             font-size: 0.9rem;
@@ -1127,13 +1168,50 @@
                 padding: 8px 18px;
                 font-size: 0.75rem;
             }
+            .video-background video {
+                opacity: 0.4;
+            }
+        }
+
+        /* Video loading state */
+        .video-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--gold);
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            opacity: 0.5;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ============ UNIQUE BACKGROUND LAYERS ============ -->
-    <div class="animated-bg"></div>
+    <!-- ============ VIDEO BACKGROUND ============ -->
+    <div class="video-background" id="videoBackground">
+        <video 
+            id="bgVideo"
+            src="https://videotourl.com/videos/1784128962589-855a83e5-3297-4a35-a4b8-494c9ff1e226.mp4" 
+            autoplay 
+            muted 
+            loop 
+            playsinline
+            preload="metadata"
+            poster="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=80"
+        ></video>
+        <div class="overlay"></div>
+        <div class="video-fallback" id="videoFallback"></div>
+        <div class="video-loading" id="videoLoading">Loading experience...</div>
+    </div>
+
+    <!-- ============ NOISE & ORBS ============ -->
     <div class="noise-texture"></div>
     <div class="orb orb-gold"></div>
     <div class="orb orb-blue"></div>
@@ -1146,7 +1224,7 @@
         <a href="tel:+919773751345" class="floating-btn call" aria-label="Call">
             <i class="fas fa-phone"></i>
         </a>
-        <a href="mailto:modernera09@gmail.com" class="floating-btn email" aria-label="Email">
+        <a href="mailto:modernera32@gmail.com" class="floating-btn email" aria-label="Email">
             <i class="fas fa-envelope"></i>
         </a>
     </div>
@@ -1224,7 +1302,7 @@
                     <div><div class="num">50+</div><div class="lbl">Expert Team</div></div>
                 </div>
             </div>
-            <div class="fade-up" style="background: var(--bg-card); padding: 40px 32px; border-radius: 12px; border: 1px solid var(--border-gold); box-shadow: var(--shadow-card);">
+            <div class="fade-up" style="background: var(--bg-card); padding: 40px 32px; border-radius: 12px; border: 1px solid var(--border-gold); box-shadow: var(--shadow-card); backdrop-filter: blur(4px);">
                 <h3 style="color: var(--gold); font-family: var(--font-heading); font-size: 1.6rem; margin-bottom: 20px;">Our Core Values</h3>
                 <ul style="display: grid; gap: 18px;">
                     <li style="display: flex; gap: 16px; align-items: center; padding-bottom: 14px; border-bottom: 1px solid var(--border-gold);">
@@ -1248,7 +1326,7 @@
         </div>
     </section>
 
-    <!-- ============ FOUNDER & CO-FOUNDER (LEADERSHIP) ============ -->
+    <!-- ============ LEADERSHIP ============ -->
     <section class="leadership" id="leadership">
         <div class="container">
             <div class="section-header fade-up">
@@ -1256,7 +1334,6 @@
                 <p class="section-sub">The visionaries and creative minds behind Modern Era's design philosophy.</p>
             </div>
             <div class="leadership-grid">
-                <!-- Founder -->
                 <div class="leader-card fade-up">
                     <div class="avatar">
                         <img src="https://i.ibb.co/BHLPNXpR/Chat-GPT-Image-Jun-29-2026-09-36-50-PM.png" alt="Portrait of Mr. Sukhva" loading="lazy" />
@@ -1265,17 +1342,14 @@
                     <div class="role">Founder</div>
                     <p>Visionary leader with over 30+ years of experience in luxury interiors and architectural design. Passionate about creating spaces that tell a story.</p>
                 </div>
-                <!-- Co-Founder -->
                 <div class="leader-card fade-up">
                     <div class="avatar">
                         <img src="https://i.ibb.co/bRz9P1NH/Chat-GPT-Image-Jun-29-2026-09-57-41-PM.png" alt="Portrait of Mr. Hasan" loading="lazy" />
                     </div>
-                    <h3>Mr. Hasan </h3>
+                    <h3>Mr. Hasan</h3>
                     <div class="role">Co-Founder &amp; Creative Director</div>
                     <p>An award-winning designer with a keen eye for detail. Brings a unique blend of innovation and timeless elegance to every project.</p>
                 </div>
-                <!-- Add a third card if you have a partner/director -->
-                
                 <div class="leader-card fade-up">
                     <div class="avatar">
                         <img src="https://i.ibb.co/pBFDXFvM/Chat-GPT-Image-Jun-29-2026-09-57-46-PM.png" alt="Portrait of Mr. Anas" loading="lazy" />
@@ -1284,7 +1358,6 @@
                     <div class="role">Manager</div>
                     <p>Oversees operations and client relations, ensuring every project exceeds expectations.</p>
                 </div>
-                
             </div>
         </div>
     </section>
@@ -1307,7 +1380,7 @@
         </div>
     </section>
 
-    <!-- ============ UPGRADED PORTFOLIO ============ -->
+    <!-- ============ PORTFOLIO ============ -->
     <section class="portfolio" id="portfolio">
         <div class="container">
             <div class="section-header fade-up">
@@ -1468,7 +1541,44 @@ data-image="https://i.ibb.co/ymCzQpwh/IMG-20260630-WA0014.jpg">
 
 <!-- ============ JAVASCRIPT ============ -->
 <script>
-    // Hamburger toggle
+    // ============================================================
+    // VIDEO BACKGROUND HANDLING
+    // ============================================================
+    (function initVideoBackground() {
+        const video = document.getElementById('bgVideo');
+        const loading = document.getElementById('videoLoading');
+        const fallback = document.getElementById('videoFallback');
+
+        if (!video) return;
+
+        // Show fallback if video fails to load
+        video.addEventListener('error', function() {
+            console.warn('Background video failed to load. Showing fallback.');
+            video.style.display = 'none';
+            loading.style.display = 'none';
+            fallback.style.display = 'block';
+        });
+
+        // Hide loading indicator when video can play
+        video.addEventListener('canplay', function() {
+            loading.style.display = 'none';
+        });
+
+        // If video takes too long, hide loading anyway
+        setTimeout(function() {
+            loading.style.display = 'none';
+        }, 8000);
+
+        // Try to play video (autoplay might be blocked)
+        video.play().catch(function(err) {
+            console.warn('Autoplay was prevented:', err);
+            // Video will still be visible but paused — user interaction may start it
+        });
+    })();
+
+    // ============================================================
+    // HAMBURGER MENU
+    // ============================================================
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
     const contactForm = document.getElementById('contactForm');
@@ -1491,10 +1601,14 @@ data-image="https://i.ibb.co/ymCzQpwh/IMG-20260630-WA0014.jpg">
         });
     });
 
-    // Dynamic year
+    // ============================================================
+    // DYNAMIC YEAR
+    // ============================================================
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Smooth scroll offset for fixed header
+    // ============================================================
+    // SMOOTH SCROLL WITH HEADER OFFSET
+    // ============================================================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const target = document.querySelector(this.getAttribute('href'));
@@ -1508,7 +1622,25 @@ data-image="https://i.ibb.co/ymCzQpwh/IMG-20260630-WA0014.jpg">
         });
     });
 
-    // Intersection Observer for fade-up animations
+    // ============================================================
+    // HEADER SCROLL EFFECT
+    // ============================================================
+    const header = document.getElementById('header');
+    let lastScrollY = 0;
+
+    window.addEventListener('scroll', function() {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+        lastScrollY = currentScrollY;
+    });
+
+    // ============================================================
+    // FADE-UP ANIMATIONS (Intersection Observer)
+    // ============================================================
     const fadeElements = document.querySelectorAll('.fade-up');
 
     const observer = new IntersectionObserver((entries) => {
@@ -1524,7 +1656,9 @@ data-image="https://i.ibb.co/ymCzQpwh/IMG-20260630-WA0014.jpg">
 
     fadeElements.forEach(el => observer.observe(el));
 
-    // Portfolio Filter
+    // ============================================================
+    // PORTFOLIO FILTER
+    // ============================================================
     const filterButtons = document.querySelectorAll('.filter-btn');
     const portfolioItems = document.querySelectorAll('.portfolio-item');
     let lastFocusedPortfolioItem = null;
@@ -1561,7 +1695,9 @@ data-image="https://i.ibb.co/ymCzQpwh/IMG-20260630-WA0014.jpg">
         });
     });
 
-    // Portfolio Modal (Lightbox)
+    // ============================================================
+    // PORTFOLIO MODAL
+    // ============================================================
     const modal = document.getElementById('portfolioModal');
     const modalImage = document.getElementById('modalImage');
     const modalTitle = document.getElementById('modalTitle');
@@ -1610,7 +1746,9 @@ data-image="https://i.ibb.co/ymCzQpwh/IMG-20260630-WA0014.jpg">
         if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
     });
 
-    // Contact form fallback
+    // ============================================================
+    // CONTACT FORM (mailto fallback)
+    // ============================================================
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
@@ -1628,10 +1766,11 @@ data-image="https://i.ibb.co/ymCzQpwh/IMG-20260630-WA0014.jpg">
             projectMessage
         ].filter(Boolean).join('\n');
 
-        window.location.href = `mailto:modernera32@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href =
+            `mailto:modernera32@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
 
-    console.log('✨ Modern Era — Founder & Co-Founder section restored.');
+    console.log('✨ Modern Era — Enhanced with video background.');
 </script>
 </body>
 </html>
